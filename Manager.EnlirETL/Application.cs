@@ -96,23 +96,31 @@ namespace Manager.EnlirETL
                 string failureInfo;
 
                 //Before we take the overhead of downloading all the import data, check that the data has the right overall structure
-                bool isDataSourceValid = _importValidator.TryValidateDataSource(out failureInfo);
-                if (!isDataSourceValid)
+                bool useLocalImport = true;
+                ImportResultsContainer importResultsContainer = null;
+                string importStoragePath = null;
+                if (!useLocalImport)
                 {
-                    _logger.LogWarning("Enlir Import Data not in Expected Format: \n" + failureInfo);
-                    throw new ValidationException("Enlir Import Data not in Expected Format: \n" + failureInfo);
+                    bool isDataSourceValid = _importValidator.TryValidateDataSource(out failureInfo);
+                    if (!isDataSourceValid)
+                    {
+                        _logger.LogWarning("Enlir Import Data not in Expected Format: \n" + failureInfo);
+                        throw new ValidationException("Enlir Import Data not in Expected Format: \n" + failureInfo);
+                    }
+
+                    importResultsContainer = _importManager.ImportAll();
+                    importStoragePath = _importStorageProvider.StoreImportResults(importResultsContainer, formattedDateString);
                 }
-
-                ImportResultsContainer importResultsContainer = _importManager.ImportAll();
-                string importStoragePath = _importStorageProvider.StoreImportResults(importResultsContainer, formattedDateString);
+                else
+                {
+                    //cheat data setup for testing - comment out when doing full run for real
+                    importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2020-04-15_04-07-23.json";
+                    //string transformStoragePath = @"D:\Docs\Personal\FFRKLinqQuery\TransformResults-Latest.json";
+                    //string formattedDateString = "2018-12-21_09-48-46";
+                    string importContents = File.ReadAllText(importStoragePath);
+                    importResultsContainer = JsonConvert.DeserializeObject<ImportResultsContainer>(importContents);
+                }
                 stopwatchImport.Stop();
-
-                //cheat data setup for testing - comment out when doing full run for real
-                //string importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2020-04-15_01-39-34.json";
-                //string transformStoragePath = @"D:\Docs\Personal\FFRKLinqQuery\TransformResults-Latest.json";
-                //string formattedDateString = "2018-12-21_09-48-46";
-                //string importContents = File.ReadAllText(importStoragePath);
-                //ImportResultsContainer importResultsContainer = JsonConvert.DeserializeObject<ImportResultsContainer>(importContents);
 
                 ////Now that we have the import data, we need to check whether our TypeLists (used to convert staring data into ids)
                 ////is still accurate. If the source data has changed their list of values for each type, we need to stop and correct the TypeLists
@@ -173,6 +181,7 @@ namespace Manager.EnlirETL
             _servicesCollection.Configure<LegendMateriaImporterOptions>(_configuration.GetSection(nameof(LegendMateriaImporterOptions)));
             _servicesCollection.Configure<AbilityImporterOptions>(_configuration.GetSection(nameof(AbilityImporterOptions)));
             _servicesCollection.Configure<SoulBreakImporterOptions>(_configuration.GetSection(nameof(SoulBreakImporterOptions)));
+            _servicesCollection.Configure<LimitBreakImporterOptions>(_configuration.GetSection(nameof(LimitBreakImporterOptions)));
             _servicesCollection.Configure<CommandImporterOptions>(_configuration.GetSection(nameof(CommandImporterOptions)));
             _servicesCollection.Configure<SynchroCommandImporterOptions>(_configuration.GetSection(nameof(SynchroCommandImporterOptions)));
             _servicesCollection.Configure<BraveActionImporterOptions>(_configuration.GetSection(nameof(BraveActionImporterOptions)));
@@ -207,6 +216,7 @@ namespace Manager.EnlirETL
             _servicesCollection.AddScoped<IRowImporter<LegendMateriaRow>, LegendMateriaImporter>();
             _servicesCollection.AddScoped<IRowImporter<AbilityRow>, AbilityImporter>();
             _servicesCollection.AddScoped<IRowImporter<SoulBreakRow>, SoulBreakImporter>();
+            _servicesCollection.AddScoped<IRowImporter<LimitBreakRow>, LimitBreakImporter>();
             _servicesCollection.AddScoped<IRowImporter<CommandRow>, CommandImporter>();
             _servicesCollection.AddScoped<IRowImporter<SynchroCommandRow>, SynchroCommandImporter>();
             _servicesCollection.AddScoped<IRowImporter<BraveActionRow>, BraveActionImporter>();
@@ -232,6 +242,7 @@ namespace Manager.EnlirETL
             _servicesCollection.AddScoped<IRowTransformer<SynchroCommandRow, SynchroCommand>, SynchroCommandTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<BraveActionRow, BraveAction>, BraveActionTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<SoulBreakRow, SoulBreak>, SoulBreakTransformer>();
+            _servicesCollection.AddScoped<IRowTransformer<LimitBreakRow, LimitBreak>, LimitBreakTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<RelicRow, Relic>, RelicTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<AbilityRow, Ability>, AbilityTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<LegendMateriaRow, LegendMateria>, LegendMateriaTransformer>();

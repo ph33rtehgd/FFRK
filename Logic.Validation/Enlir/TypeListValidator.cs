@@ -48,6 +48,7 @@ namespace FFRKApi.Logic.Validation.Enlir
             validationResults.Add(ValidateRelicTypes(importResultsContainer));
             validationResults.Add(ValidateSchools(importResultsContainer));
             validationResults.Add(ValidateSoulBreakTiers(importResultsContainer));
+            validationResults.Add(ValidateLimitBreakTiers(importResultsContainer));
             validationResults.Add(ValidateTargetTypes(importResultsContainer));
 
             return validationResults;
@@ -75,9 +76,12 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakAbilityTypes = irc.SoulBreakRows.Select(ar => ar.Type.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakAbilityTypes = irc.LimitBreakRows.Select(ar => ar.Type.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //AbilityTypes - source
             var unifiedAbilityTypesList = abilityAbilityTypes.Union(commandAbilityTypes).Union(magiciteAbilityTypes).
-                Union(magiciteSkillAbilityTypes).Union(otherAbilityTypes).Union(soulBreakAbilityTypes).OrderBy(e => e);
+                Union(magiciteSkillAbilityTypes).Union(otherAbilityTypes).Union(soulBreakAbilityTypes).Union(limitBreakAbilityTypes).OrderBy(e => e);
 
             //AbilityTypes - id list
             var abilityTypesIdList = new AbilityTypeList();
@@ -114,9 +118,12 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakAutoTargetTypes = irc.SoulBreakRows.Select(ar => ar.AutoTarget.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakAutoTargetTypes = irc.LimitBreakRows.Select(ar => ar.AutoTarget.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //AutoTargetTypes - source
             var unifiedAutoTargetTypesList = abilityAutoTargetTypes.Union(commandAutoTargetTypes).Union(magiciteAutoTargetTypes).
-                Union(magiciteSkillAutoTargetTypes).Union(otherAutoTargetTypes).Union(soulBreakAutoTargetTypes).OrderBy(e => e);
+                Union(magiciteSkillAutoTargetTypes).Union(otherAutoTargetTypes).Union(soulBreakAutoTargetTypes).Union(limitBreakAutoTargetTypes).OrderBy(e => e);
 
             //AutoTargetTypes - id list
             var autoTargetTypesIdList = new AutoTargetTypeList();
@@ -153,9 +160,12 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakDamageFormulaTypes = irc.SoulBreakRows.Select(ar => ar.Formula.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakDamageFormulaTypes = irc.LimitBreakRows.Select(ar => ar.Formula.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //DamageFormulaTypes - source
             var unifiedDamageFormulaTypesList = abilityDamageFormulaTypes.Union(commandDamageFormulaTypes).Union(magiciteDamageFormulaTypes).
-                Union(magiciteSkillDamageFormulaTypes).Union(otherDamageFormulaTypes).Union(soulBreakDamageFormulaTypes).OrderBy(e => e);
+                Union(magiciteSkillDamageFormulaTypes).Union(otherDamageFormulaTypes).Union(soulBreakDamageFormulaTypes).Union(limitBreakDamageFormulaTypes).OrderBy(e => e);
 
             //DamageFormulaTypes - id list
             var damageFormulaTypesIdList = new DamageFormulaTypeList();
@@ -192,9 +202,12 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakElements = irc.SoulBreakRows.Select(ar => ar.Element.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakElements = irc.LimitBreakRows.Select(ar => ar.Element.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //elements - source
             var unifiedElementsList = abilityElements.Union(commandElements).Union(magiciteElements).
-                Union(magiciteSkillElements).Union(otherElements).Union(soulBreakElements).OrderBy(e => e);
+                Union(magiciteSkillElements).Union(otherElements).Union(soulBreakElements).Union(limitBreakElements).OrderBy(e => e);
 
             //elements - id list
             var elementIdList = new ElementList();
@@ -313,10 +326,14 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakRealms = irc.SoulBreakRows.Select(ar => ar.Realm.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakRealms = irc.LimitBreakRows.Select(ar => ar.Realm.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //Realms - source
             var unifiedRealmsList = characterRealms.Union(eventRealms).
                 Union(legendMateriaRealms).Union(legendSphereRealms).Union(magiciteRealms).
-                Union(recordMateriaRealms).Union(recordSphereRealms).Union(relicRealms).Union(soulBreakRealms).OrderBy(e => e);
+                Union(recordMateriaRealms).Union(recordSphereRealms).Union(relicRealms).Union(soulBreakRealms).
+                Union(limitBreakRealms).OrderBy(e => e);
 
             //Realms - id list
             var realmList = new RealmList();
@@ -406,6 +423,28 @@ namespace FFRKApi.Logic.Validation.Enlir
             return soulBreakTierDifferences;
         }
 
+        private TypeListDifferences ValidateLimitBreakTiers(ImportResultsContainer irc)
+        {
+            var limitBreakSoulBreakTiers = irc.LimitBreakRows.Select(m => m.Tier.Trim()).Distinct().OrderBy(e => e).ToList();
+
+            //SoulBreakTiers - source
+            var unifiedLimitBreakTierList = limitBreakSoulBreakTiers.OrderBy(e => e);
+
+            //SoulBreakTiers - id list
+            var limitBreakTierList = new LimitBreakTierList();
+            var limitBreakTierListNames = limitBreakTierList.TypeList.Where(il => il.Key != 0).Select(kvp => kvp.Value).ToList();
+
+            TypeListDifferences limitBreakTierDifferences = new TypeListDifferences()
+            {
+                IdListName = nameof(LimitBreakTierList),
+                ValuesMissingFromIdList = unifiedLimitBreakTierList.Except(limitBreakTierListNames).ToList(),
+                ValuesSuperfluousInIdList = limitBreakTierListNames.Except(unifiedLimitBreakTierList).ToList(),
+                SuggestedIdListContents = GenerateSuggestedIdListContents(unifiedLimitBreakTierList)
+            };
+
+            return limitBreakTierDifferences;
+        }
+
         private TypeListDifferences ValidateTargetTypes(ImportResultsContainer irc)
         {
             var abilityTargetTypes = irc.AbilityRows.Select(ar => ar.Target.Split(",".ToCharArray())).
@@ -420,8 +459,12 @@ namespace FFRKApi.Logic.Validation.Enlir
             var soulBreakTargetTypes = irc.SoulBreakRows.Select(ar => ar.Target.Split(",".ToCharArray())).
                 SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
 
+            var limitBreakTargetTypes = irc.LimitBreakRows.Select(ar => ar.Target.Split(",".ToCharArray())).
+                SelectMany(el => el).Select(s => s.Trim()).Distinct().OrderBy(e => e).ToList();
+
             //TargetTypes - source
-            var unifiedTargetTypesList = abilityTargetTypes.Union(commandTargetTypes).Union(otherTargetTypes).Union(soulBreakTargetTypes).OrderBy(e => e);
+            var unifiedTargetTypesList = abilityTargetTypes.Union(commandTargetTypes).Union(otherTargetTypes).Union(soulBreakTargetTypes).
+                Union(limitBreakTargetTypes).OrderBy(e => e);
 
             //TargetTypes - id list
             var targetTypesIdList = new TargetTypeList();

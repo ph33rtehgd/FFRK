@@ -32,6 +32,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetStatSetTypeList();
         IActionResult GetStatTypeList();
         IActionResult GetSoulBreakTierTypeList();
+        IActionResult GetLimitBreakTierTypeList();
         IActionResult GetTargetTypeList();
 
     }
@@ -523,6 +524,36 @@ namespace FFRKApi.Api.FFRK.Controllers
             _logger.LogInformation($"Logic Method invoked: {nameof(GetSoulBreakTierTypeList)}");
 
             IEnumerable<KeyValuePair<int, string>> result = _typeListsLogic.GetSoulBreakTierTypeList();
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
+        /// Get the TypeList for LimitBreakTierType
+        /// </summary>
+        /// <remarks>
+        /// The values in this TypeList are drawn from those found in the columns in Enlir called "Tier" when in the context of a Limit Break
+        /// Some example values are OLB, GLB, etc. 
+        /// <br /> 
+        /// Enlir Mapping - sheet: "Limit Breaks", column "Tier"
+        /// <br /> 
+        /// Sample Use Case - You would call this method if you wanted to call the LimitBreaks api and find all Limit Breaks that belonged to the USB tier. 
+        /// The results of this method would give you the id for USB that you need use in that LimitBreaks Api call
+        /// <br /> 
+        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/LimitBreakTierType (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.TypeListsRoute_LimitBreakTierType)]
+        [SwaggerOperation(nameof(GetLimitBreakTierTypeList))]
+        [ProducesResponseType(typeof(IEnumerable<KeyValuePair<int, string>>), (int)HttpStatusCode.OK)]
+        public IActionResult GetLimitBreakTierTypeList()
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetLimitBreakTierTypeList)}");
+
+            IEnumerable<KeyValuePair<int, string>> result = _typeListsLogic.GetLimitBreakTierTypeList();
 
             return new ObjectResult(result);
         }

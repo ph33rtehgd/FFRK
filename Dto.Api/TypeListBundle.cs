@@ -16,6 +16,7 @@ namespace FFRKApi.Dto.Api
         public IEnumerable<KeyValuePair<int, string>> RelicType { get; set; }
         public IEnumerable<KeyValuePair<int, string>> SchoolType { get; set; }
         public IEnumerable<KeyValuePair<int, string>> SoulBreakTierType { get; set; }
+        public IEnumerable<KeyValuePair<int, string>> LimitBreakTierType { get; set; }
         public IEnumerable<KeyValuePair<int, string>> TargetType { get; set; }
     }
 }

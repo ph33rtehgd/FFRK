@@ -20,6 +20,7 @@ namespace FFRKApi.Model.EnlirImport
         public IEnumerable<AbilityRow> AbilityRows { get; set; }
 
         public IEnumerable<SoulBreakRow> SoulBreakRows { get; set; }
+        public IEnumerable<LimitBreakRow> LimitBreakRows { get; set; }
 
         public IEnumerable<CommandRow> CommandRows { get; set; }
 

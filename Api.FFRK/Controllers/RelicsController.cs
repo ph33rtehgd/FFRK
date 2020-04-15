@@ -25,6 +25,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetRelicsByRealm(int realmType);
         IActionResult GetRelicsByCharacter(int characterId);
         IActionResult GetRelicsBySoulBreak(int soulBreakId);
+        IActionResult GetRelicsByLimitBreak(int limitBreakId);
         IActionResult GetRelicsByLegendMateria(int legendMateriaId);
         IActionResult GetRelicsByRelicType(int relicType);
         IActionResult GetRelicsByEffect(string effectText);
@@ -258,6 +259,36 @@ namespace FFRKApi.Api.FFRK.Controllers
             _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsBySoulBreak)}");
 
             IEnumerable<Relic> model = _relicsLogic.GetRelicsBySoulBreak(soulBreakId);
+
+            IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
+        /// Gets the Relic instance associated with the specified Limit Break
+        /// </summary>
+        /// <remarks>
+        /// Sample Use Case - You want to find out data about the Relic that is associated with the "Cherished Rose" Limit Break
+        /// - You first call /api/v1.0/IdLists/LimitBreak to get the proper IdList
+        /// - Then you look up the integer Key associated with the Value of "Cherished Rose" in the IdList (the id is 1 in this case)
+        /// - Finally you call this api: api/v1.0/Relics/LimitBreak/1
+        /// <br /> 
+        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/LimitBreak/1 (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <param name="limitBreakId">the integer id for the desired Limit Break that a Relic are associated with; it can be found in the LimitBreak IdList</param>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;Relic&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.RelicsRoute_LimitBreak)]
+        [SwaggerOperation(nameof(GetRelicsBySoulBreak))]
+        [ProducesResponseType(typeof(IEnumerable<D.Relic>), (int)HttpStatusCode.OK)]
+        public IActionResult GetRelicsByLimitBreak(int limitBreakId)
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsBySoulBreak)}");
+
+            IEnumerable<Relic> model = _relicsLogic.GetRelicsByLimitBreak(limitBreakId);
 
             IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
 

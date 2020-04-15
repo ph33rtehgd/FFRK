@@ -27,6 +27,7 @@ namespace FFRKApi.Model.EnlirTransform
         public IEnumerable<SynchroCommand> SynchroCommands { get; set; }
 
         public IEnumerable<SoulBreak> SoulBreaks { get; set; }
+        public IEnumerable<LimitBreak> LimitBreaks { get; set; }
 
         public IEnumerable<Relic> Relics { get; set; }
 

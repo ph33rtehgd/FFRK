@@ -21,6 +21,7 @@ namespace FFRKApi.Logic.Validation.Enlir
         private readonly LegendMateriaImporterOptions _legendMateriaImporterOptions;
         private readonly AbilityImporterOptions _abilityImporterOptions;
         private readonly SoulBreakImporterOptions _soulBreakImporterOptions;
+        private readonly LimitBreakImporterOptions _limitBreakImporterOptions;
         private readonly CommandImporterOptions _commandImporterOptions;
         private readonly SynchroCommandImporterOptions _synchroCommandImporterOptions;
         private readonly BraveActionImporterOptions _braveActionImporterOptions;
@@ -41,7 +42,7 @@ namespace FFRKApi.Logic.Validation.Enlir
 
         #region Constants
 
-        private const int ExpectedWorksheetCount = 20; //this includes two sheets from which we do not import: Header, Calculator
+        private const int ExpectedWorksheetCount = 21; //this includes two sheets from which we do not import: Header, Calculator
 
         #endregion
 
@@ -50,7 +51,7 @@ namespace FFRKApi.Logic.Validation.Enlir
         public ImportValidator(IOptions<CharacterImporterOptions> characterImporterOptions, IOptions<RecordSphereImporterOptions> recordSphereImporterOptions,
             IOptions<LegendSphereImporterOptions> legendSphereImporterOptions, IOptions<RecordMateriaImporterOptions> recordMateriaImporterOptions,
             IOptions<LegendMateriaImporterOptions> legendMateriaImporterOptions, IOptions<AbilityImporterOptions> abilityImporterOptions,
-            IOptions<SoulBreakImporterOptions> soulBreakImporterOptions, IOptions<CommandImporterOptions> commandImporterOptions,
+            IOptions<SoulBreakImporterOptions> soulBreakImporterOptions, IOptions<LimitBreakImporterOptions> limitBreakImporterOptions, IOptions<CommandImporterOptions> commandImporterOptions,
             IOptions<SynchroCommandImporterOptions> synchroCommandImporterOptions, IOptions<BraveActionImporterOptions> braveActionImporterOptions,
             IOptions<OtherImporterOptions> otherImporterOptions, IOptions<StatusImporterOptions> statusImporterOptions,
             IOptions<RelicImporterOptions> relicImporterOptions, IOptions<MagiciteImporterOptions> magiciteImporterOptions,
@@ -66,6 +67,7 @@ namespace FFRKApi.Logic.Validation.Enlir
             _legendMateriaImporterOptions = legendMateriaImporterOptions.Value;
             _abilityImporterOptions = abilityImporterOptions.Value;
             _soulBreakImporterOptions = soulBreakImporterOptions.Value;
+            _limitBreakImporterOptions = limitBreakImporterOptions.Value;
             _commandImporterOptions = commandImporterOptions.Value;
             _synchroCommandImporterOptions = synchroCommandImporterOptions.Value;
             _braveActionImporterOptions = braveActionImporterOptions.Value;
@@ -143,6 +145,13 @@ namespace FFRKApi.Logic.Validation.Enlir
                 isValid = false;
                 builder.AppendLine(nameof(SoulBreakImporterOptions));
                 LoggerExtensions.LogWarning(_logger, "Actual worksheet Structure does not match the expected structure for worksheet {WorksheetName}.", _soulBreakImporterOptions.WorkSheetName);
+
+            }
+            if (!_googleSheetsDataValidator.ValidateWorksheetMetadata(_limitBreakImporterOptions))
+            {
+                isValid = false;
+                builder.AppendLine(nameof(LimitBreakImporterOptions));
+                LoggerExtensions.LogWarning(_logger, "Actual worksheet Structure does not match the expected structure for worksheet {WorksheetName}.", _limitBreakImporterOptions.WorkSheetName);
 
             }
             if (!_googleSheetsDataValidator.ValidateWorksheetMetadata(_commandImporterOptions))

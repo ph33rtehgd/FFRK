@@ -25,6 +25,7 @@ namespace FFRKApi.Logic.EnlirImport
         private readonly IRowImporter<LegendMateriaRow> _legendMateriaImporter;
         private readonly IRowImporter<AbilityRow> _abilityImporter;
         private readonly IRowImporter<SoulBreakRow> _soulBreakImporter;
+        private readonly IRowImporter<LimitBreakRow> _limitBreakImporter;
         private readonly IRowImporter<CommandRow> _commandImporter;
         private readonly IRowImporter<SynchroCommandRow> _synchroCommandImporter;
         private readonly IRowImporter<BraveActionRow> _braveActionImporter;
@@ -46,7 +47,8 @@ namespace FFRKApi.Logic.EnlirImport
         public ImportManager(IRowImporter<CharacterRow> characterImporter, IRowImporter<RecordSphereRow> recordSphereImporter,
             IRowImporter<LegendSphereRow> legendSphereImporter, IRowImporter<RecordMateriaRow> recordMateriaImporter,
             IRowImporter<LegendMateriaRow> legendMateriaImporter, IRowImporter<AbilityRow> abilityImporter,
-            IRowImporter<SoulBreakRow> soulBreakImporter, IRowImporter<CommandRow> commandImporter, IRowImporter<SynchroCommandRow> synchroCommandImporter, 
+            IRowImporter<SoulBreakRow> soulBreakImporter, IRowImporter<LimitBreakRow> limitBreakImporter,
+            IRowImporter<CommandRow> commandImporter, IRowImporter<SynchroCommandRow> synchroCommandImporter, 
             IRowImporter<BraveActionRow> braveActionImporter,
             IRowImporter<OtherRow> otherImporter, IRowImporter<StatusRow> statusImporter,
             IRowImporter<RelicRow> relicImporter, IRowImporter<MagiciteRow> magiciteImporter,
@@ -62,6 +64,7 @@ namespace FFRKApi.Logic.EnlirImport
             _legendMateriaImporter = legendMateriaImporter;
             _abilityImporter = abilityImporter;
             _soulBreakImporter = soulBreakImporter;
+            _limitBreakImporter = limitBreakImporter;
             _commandImporter = commandImporter;
             _synchroCommandImporter = synchroCommandImporter;
             _braveActionImporter = braveActionImporter;
@@ -108,6 +111,9 @@ namespace FFRKApi.Logic.EnlirImport
 
                 resultsContainer.SoulBreakRows = _soulBreakImporter.Import();
                 _logger.LogInformation("finished loading {RowCount} SoulBreakRows", resultsContainer.SoulBreakRows?.Count());
+
+                resultsContainer.LimitBreakRows = _limitBreakImporter.Import();
+                _logger.LogInformation("finished loading {RowCount} LimitBreakRows", resultsContainer.LimitBreakRows?.Count());
 
                 resultsContainer.CommandRows = _commandImporter.Import();
                 _logger.LogInformation("finished loading {RowCount} CommandRows", resultsContainer.CommandRows?.Count());

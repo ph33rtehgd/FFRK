@@ -50,6 +50,7 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string TypeListsRoute_StatSetType = "StatSetType";
         public const string TypeListsRoute_StatType = "StatType";
         public const string TypeListsRoute_SoulBreakTierType = "SoulBreakTierType";
+        public const string TypeListsRoute_LimitBreakTierType = "LimitBreakTierType";
         public const string TypeListsRoute_TargetType = "TargetType";
 
         //Abilities Routes
@@ -228,6 +229,7 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string RelicsRoute_RealmType = "RealmType/{realmType}";
         public const string RelicsRoute_Character = "Character/{characterId}";
         public const string RelicsRoute_SoulBreak = "SoulBreak/{soulBreakId}";
+        public const string RelicsRoute_LimitBreak = "LimitBreak/{limitBreakId}";
         public const string RelicsRoute_LegendMateria = "LegendMateria/{legendMateriaId}";
         public const string RelicsRoute_RelicType = "RelicType/{relicType}";
         public const string RelicsRoute_Effect = "Effect/{effectText}";
@@ -251,6 +253,21 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string SoulBreaksRoute_MasteryBonus = "MasteryBonus/{masteryBonusText}";
         public const string SoulBreaksRoute_Status = "Status/{statusId}";
         public const string SoulBreaksRoute_Search = "Search"; //POST
+
+        //LimitBreaks Routes
+        public const string LimitBreaksRoute_All = "";
+        public const string LimitBreaksRoute_Id = "{limitBreakId}";
+        public const string LimitBreaksRoute_AbilityType = "AbilityType/{abilityType}";
+        public const string LimitBreaksRoute_Name = "Name/{limitBreakName}";
+        public const string LimitBreaksRoute_RealmType = "RealmType/{realmType}";
+        public const string LimitBreaksRoute_Character = "Character/{characterId}";
+        public const string LimitBreaksRoute_Multiplier = "Multiplier/{multiplier}";
+        public const string LimitBreaksRoute_Element = "Element/{elementType}";
+        public const string LimitBreaksRoute_Effect = "Effect/{effectText}";
+        public const string LimitBreaksRoute_Tier = "Tier/{limitBreakTier}";
+        public const string LimitBreaksRoute_MasteryBonus = "LimitBreakBonus/{limitBreakBonusText}";
+        public const string LimitBreaksRoute_Status = "Status/{statusId}";
+        public const string LimitBreaksRoute_Search = "Search"; //POST
 
         //Statuses Routes
         public const string StatusesRoute_All = "";

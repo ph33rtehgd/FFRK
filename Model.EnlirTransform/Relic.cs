@@ -23,6 +23,9 @@ namespace FFRKApi.Model.EnlirTransform
 
         public SoulBreak SoulBreak { get; set; } //fill during merge phase
 
+        public int LimitBreakId { get; set; } //fill during merge phase
+        public LimitBreak LimitBreak { get; set; } //fill during merge phase
+
         public string LegendMateriaName { get; set; }
         public int LegendMateriaId { get; set; } //fill during merge phase
 

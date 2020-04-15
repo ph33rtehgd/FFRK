@@ -19,6 +19,7 @@ namespace FFRKApi.Logic.Api
         IEnumerable<Relic> GetRelicsByRealm(int realmType);
         IEnumerable<Relic> GetRelicsByCharacter(int characterId);
         IEnumerable<Relic> GetRelicsBySoulBreak(int soulBreakId);
+        IEnumerable<Relic> GetRelicsByLimitBreak(int limitBreakId);
         IEnumerable<Relic> GetRelicsByLegendMateria(int legendMateriaId);
         IEnumerable<Relic> GetRelicsByRelicType(int relicType);
         IEnumerable<Relic> GetRelicsByEffect(string effectText);
@@ -161,6 +162,23 @@ namespace FFRKApi.Logic.Api
             if (results == null)
             {
                 results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => r.SoulBreakId == soulBreakId);
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
+        public IEnumerable<Relic> GetRelicsByLimitBreak(int limitBreakId)
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByLimitBreak)}");
+
+            string cacheKey = $"{nameof(GetRelicsByLimitBreak)}:{limitBreakId}";
+            IEnumerable<Relic> results = _cacheProvider.ObjectGet<IList<Relic>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => r.LimitBreakId == limitBreakId);
 
                 _cacheProvider.ObjectSet(cacheKey, results);
             }

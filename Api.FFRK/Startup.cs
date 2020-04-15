@@ -141,6 +141,7 @@ namespace FFRKApi.Api.FFRK
             services.AddScoped<IRecordSpheresLogic, RecordSpheresLogic>();
             services.AddScoped<IRelicsLogic, RelicsLogic>();
             services.AddScoped<ISoulBreaksLogic, SoulBreaksLogic>();
+            services.AddScoped<ILimitBreaksLogic, LimitBreaksLogic>();
             services.AddScoped<IStatusesLogic, StatusesLogic>();
 
             services.AddScoped<IMaintenanceLogic, MaintenanceLogic>();

@@ -28,6 +28,7 @@ namespace FFRKApi.Logic.Api
         IEnumerable<KeyValuePair<int, string>> GetStatSetTypeList();
         IEnumerable<KeyValuePair<int, string>> GetStatTypeList();
         IEnumerable<KeyValuePair<int, string>> GetSoulBreakTierTypeList();
+        IEnumerable<KeyValuePair<int, string>> GetLimitBreakTierTypeList();
         IEnumerable<KeyValuePair<int, string>> GetTargetTypeList();
 
     }
@@ -77,6 +78,7 @@ namespace FFRKApi.Logic.Api
                     RelicType = _enlirRepository.GetMergeResultsContainer().RelicTypeList,
                     SchoolType = _enlirRepository.GetMergeResultsContainer().SchoolList,
                     SoulBreakTierType = _enlirRepository.GetMergeResultsContainer().SoulBreakTierList,
+                    LimitBreakTierType = _enlirRepository.GetMergeResultsContainer().LimitBreakTierList,
                     TargetType = _enlirRepository.GetMergeResultsContainer().TargetTypeList
                 };
 
@@ -317,6 +319,23 @@ namespace FFRKApi.Logic.Api
             if (results == null)
             {
                 results = _enlirRepository.GetMergeResultsContainer().SoulBreakTierList;
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
+        public IEnumerable<KeyValuePair<int, string>> GetLimitBreakTierTypeList()
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetLimitBreakTierTypeList)}");
+
+            string cacheKey = $"{nameof(GetLimitBreakTierTypeList)}";
+            IList<KeyValuePair<int, string>> results = _cacheProvider.ObjectGet<IList<KeyValuePair<int, string>>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().LimitBreakTierList;
 
                 _cacheProvider.ObjectSet(cacheKey, results);
             }

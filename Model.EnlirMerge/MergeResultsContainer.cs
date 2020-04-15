@@ -29,6 +29,7 @@ namespace FFRKApi.Model.EnlirMerge
         public IEnumerable<SynchroCommand> SynchroCommands { get; set; }
 
         public IEnumerable<SoulBreak> SoulBreaks { get; set; }
+        public IEnumerable<LimitBreak> LimitBreaks { get; set; }
 
         public IEnumerable<Relic> Relics { get; set; }
 
@@ -59,6 +60,7 @@ namespace FFRKApi.Model.EnlirMerge
         public IList<KeyValuePair<int, string>> StatSetTypeList { get; set; }
         public IList<KeyValuePair<int, string>> StatTypeList { get; set; }
         public IList<KeyValuePair<int, string>> SoulBreakTierList { get; set; }
+        public IList<KeyValuePair<int, string>> LimitBreakTierList { get; set; }
         public IList<KeyValuePair<int, string>> TargetTypeList { get; set; }
 
         //Model lookup lists
@@ -74,6 +76,7 @@ namespace FFRKApi.Model.EnlirMerge
         public IList<KeyValuePair<int, string>> SynchroCommandIdList { get; set; }
         public IList<KeyValuePair<int, string>> BraveActionIdList { get; set; }
         public IList<KeyValuePair<int, string>> SoulBreakIdList { get; set; }
+        public IList<KeyValuePair<int, string>> LimitBreakIdList { get; set; }
         public IList<KeyValuePair<int, string>> RelicIdList { get; set; }
         public IList<KeyValuePair<int, string>> AbilityIdList { get; set; }
         public IList<KeyValuePair<int, string>> LegendMateriaIdList { get; set; }

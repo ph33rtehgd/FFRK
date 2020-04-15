@@ -69,6 +69,7 @@ namespace FunctionApp.ETL
             services.Configure<LegendMateriaImporterOptions>(_configuration.GetSection(nameof(LegendMateriaImporterOptions)));
             services.Configure<AbilityImporterOptions>(_configuration.GetSection(nameof(AbilityImporterOptions)));
             services.Configure<SoulBreakImporterOptions>(_configuration.GetSection(nameof(SoulBreakImporterOptions)));
+            services.Configure<LimitBreakImporterOptions>(_configuration.GetSection(nameof(LimitBreakImporterOptions)));
             services.Configure<CommandImporterOptions>(_configuration.GetSection(nameof(CommandImporterOptions)));
             services.Configure<SynchroCommandImporterOptions>(_configuration.GetSection(nameof(SynchroCommandImporterOptions)));
             services.Configure<BraveActionImporterOptions>(_configuration.GetSection(nameof(BraveActionImporterOptions)));

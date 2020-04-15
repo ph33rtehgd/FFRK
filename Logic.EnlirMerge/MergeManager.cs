@@ -264,6 +264,16 @@ namespace FFRKApi.Logic.EnlirMerge
                     _logger.LogDebug("wired up CharacterId {CharacterId} to SoulBreak {SoulBreak}", soulbreak.CharacterId, soulbreak.Description);
                 }
             }
+
+            foreach (LimitBreak limitBreak in transformResults.LimitBreaks)
+            {
+                if (!String.IsNullOrWhiteSpace(limitBreak.CharacterName))
+                {
+                    limitBreak.CharacterId = transformResults.Characters.Where(c => c.CharacterName == limitBreak.CharacterName).Select(c => c.Id).SingleOrDefault();
+
+                    _logger.LogDebug("wired up CharacterId {CharacterId} to LimitBreak {LimitBreak}", limitBreak.CharacterId, limitBreak.Description);
+                }
+            }
         }
 
         private void WireUpLegendMateriaIds(TransformResultsContainer transformResults)
@@ -362,7 +372,20 @@ namespace FFRKApi.Logic.EnlirMerge
                 && (sb.CharacterName.Trim() == relic.CharacterName.Trim()) && (sb.RelicName == $"{relic.RelicName} ({realmName})")
                 && relic.Realm == sb.Realm).Select(e => e.Id).SingleOrDefault();
 
-                _logger.LogDebug("wired up SoulBreakId {SoulBreakId} to Relic {Relic}", relic.SoulBreakId, relic.Description);
+                if (relic.SoulBreakId != 0)
+                {
+                    _logger.LogDebug("wired up SoulBreakId {SoulBreakId} to Relic {Relic}", relic.SoulBreakId, relic.Description);
+                }
+
+                relic.LimitBreakId = transformResults.LimitBreaks.Where(lb => lb.LimitBreakName.Trim() == relic.SoulBreakName.Trim()
+                && (lb.CharacterName.Trim() == relic.CharacterName.Trim()) && (lb.RelicName == $"{relic.RelicName} ({realmName})")
+                && relic.Realm == lb.Realm).Select(e => e.Id).SingleOrDefault();
+
+                if (relic.LimitBreakId != 0)
+                {
+                    _logger.LogDebug("wired up LimitBreakId {LimitBreakId} to Relic {Relic}", relic.LimitBreakId, relic.Description);
+                }
+
             }
         }
 
@@ -391,6 +414,19 @@ namespace FFRKApi.Logic.EnlirMerge
                     r.Realm == sb.Realm && sb.CharacterName == r.CharacterName).Select(r => r.Id).SingleOrDefault();
 
                     _logger.LogDebug("wired up RelicId {RelicId} to SoulBreak {SoulBreak}", sb.RelicId, sb.Description);
+                }
+            }
+
+            foreach (LimitBreak lb in transformResults.LimitBreaks)
+            {
+                if (!String.IsNullOrWhiteSpace(lb.RelicName))
+                {
+                    string realmName = GetNameOfTypeListItem<RealmList>(lb.Realm);
+
+                    lb.RelicId = transformResults.Relics.Where(r => (lb.RelicName == $"{r.RelicName} ({realmName})") &&
+                    r.Realm == lb.Realm && lb.CharacterName == r.CharacterName).Select(r => r.Id).SingleOrDefault();
+
+                    _logger.LogDebug("wired up RelicId {RelicId} to LimitBreak {LimitBreak}", lb.RelicId, lb.Description);
                 }
             }
 
@@ -443,6 +479,18 @@ namespace FFRKApi.Logic.EnlirMerge
                 {
                     other.SourceId = relatedSoulBreak.Id;
                     other.SourceType = nameof(SoulBreak);
+
+                    _logger.LogDebug("wired up SourceId {SourceId} and SourceType {SourceType} to Other {Other}", other.SourceId, other.SourceType, other.Description);
+                    continue;
+                }
+
+                //next check limit breaks for match
+                LimitBreak relatedLimitBreak = transformResults.LimitBreaks.SingleOrDefault(s => s.LimitBreakName.Trim() == other.SourceName.Trim()
+                && (s.CharacterName.Trim() == other.CharacterName.Trim()));
+                if (relatedSoulBreak != null) //this is the match
+                {
+                    other.SourceId = relatedLimitBreak.Id;
+                    other.SourceType = nameof(LimitBreak);
 
                     _logger.LogDebug("wired up SourceId {SourceId} and SourceType {SourceType} to Other {Other}", other.SourceId, other.SourceType, other.Description);
                     continue;
@@ -599,6 +647,17 @@ namespace FFRKApi.Logic.EnlirMerge
 
                 _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", soulBreak.Statuses.Count(), soulBreak.Description);
             }
+
+            foreach (LimitBreak limitBreak in transformResults.LimitBreaks)
+            {
+                IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && limitBreak.Effects.Contains(s.CommonName)).ToList();
+
+                IList<Status> processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
+
+                limitBreak.Statuses = processedMatches;
+
+                _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", limitBreak.Statuses.Count(), limitBreak.Description);
+            }
         }
 
         private void WireUpOthers(TransformResultsContainer transformResults)
@@ -608,6 +667,13 @@ namespace FFRKApi.Logic.EnlirMerge
                 soulBreak.OtherEffects = transformResults.Others.Where(o => soulBreak.Effects.Contains(o.SourceName)).ToList();
 
                 _logger.LogDebug("wired up {OtherEffectsCount} OtherEffects to SoulBreak {SoulBreak}", soulBreak.OtherEffects.Count(), soulBreak.Description);
+            }
+
+            foreach (LimitBreak limitBreak in transformResults.LimitBreaks)
+            {
+                limitBreak.OtherEffects = transformResults.Others.Where(o => limitBreak.Effects.Contains(o.SourceName)).ToList();
+
+                _logger.LogDebug("wired up {OtherEffectsCount} OtherEffects to LimitBreak {LimitBreak}", limitBreak.OtherEffects.Count(), limitBreak.Description);
             }
         }
 
@@ -619,8 +685,17 @@ namespace FFRKApi.Logic.EnlirMerge
 
                 relic.SoulBreak = transformResults.SoulBreaks.SingleOrDefault(sb => sb.SoulBreakName.Trim() == relic.SoulBreakName.Trim()  
                 && (sb.CharacterName.Trim() == relic.CharacterName.Trim()) && (sb.RelicName == $"{relic.RelicName} ({realmName})") && relic.Realm == sb.Realm);
+                if (relic.SoulBreak != null)
+                {
+                    _logger.LogDebug("wired up {SoulBreak} LimitBreak to Relic {Relic}", relic.SoulBreak?.Description, relic?.Description);
+                }
 
-                _logger.LogDebug("wired up {SoulBreak} SoulBreak to Relic {Relic}", relic.SoulBreak?.Description, relic?.Description);
+                relic.LimitBreak = transformResults.LimitBreaks.SingleOrDefault(sb => sb.LimitBreakName.Trim() == relic.SoulBreakName.Trim()
+                    && (sb.CharacterName.Trim() == relic.CharacterName.Trim()) && (sb.RelicName == $"{relic.RelicName} ({realmName})") && relic.Realm == sb.Realm);
+                if (relic.LimitBreak != null)
+                {
+                    _logger.LogDebug("wired up {LimitBreak} LimitBreak to Relic {Relic}", relic.SoulBreak?.Description, relic?.Description);
+                }
             }
         }
 
@@ -754,6 +829,7 @@ namespace FFRKApi.Logic.EnlirMerge
             mergeResultsContainer.RecordSpheres = transformResults.RecordSpheres;
             mergeResultsContainer.Relics = transformResults.Relics;
             mergeResultsContainer.SoulBreaks = transformResults.SoulBreaks;
+            mergeResultsContainer.LimitBreaks = transformResults.LimitBreaks;
             mergeResultsContainer.Statuses = transformResults.Statuses;
 
             //now add in list members
@@ -771,6 +847,7 @@ namespace FFRKApi.Logic.EnlirMerge
             mergeResultsContainer.StatSetTypeList = new StatSetTypeList().TypeList;
             mergeResultsContainer.StatTypeList = new StatTypeList().TypeList;
             mergeResultsContainer.SoulBreakTierList = new SoulBreakTierList().TypeList;
+            mergeResultsContainer.LimitBreakTierList = new LimitBreakTierList().TypeList;
             mergeResultsContainer.TargetTypeList = new TargetTypeList().TypeList;
 
             //now add in model lookup lists
@@ -786,6 +863,7 @@ namespace FFRKApi.Logic.EnlirMerge
             mergeResultsContainer.SynchroCommandIdList = mergeResultsContainer.SynchroCommands.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
             mergeResultsContainer.BraveActionIdList = mergeResultsContainer.BraveActions.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
             mergeResultsContainer.SoulBreakIdList = mergeResultsContainer.SoulBreaks.Select(i => new KeyValuePair<int, string>(i.Id, i.SoulBreakName)).ToList();
+            mergeResultsContainer.LimitBreakIdList = mergeResultsContainer.LimitBreaks.Select(i => new KeyValuePair<int, string>(i.Id, i.LimitBreakName)).ToList();
             mergeResultsContainer.RelicIdList = mergeResultsContainer.Relics.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
             mergeResultsContainer.AbilityIdList = mergeResultsContainer.Abilities.Select(i => new KeyValuePair<int, string>(i.Id, i.AbilityName)).ToList();
             mergeResultsContainer.LegendMateriaIdList = mergeResultsContainer.LegendMaterias.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
