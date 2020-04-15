@@ -52,6 +52,8 @@ namespace FFRKApi.Logic.EnlirTransform
 
             model.StatIncrementsForLegendSpheres = GetStatIncrementsForLegendSpheres(row);
 
+            model.IntroducingEventRecordBoard = row.IntroducingEventRecordBoard;
+
             model.SchoolAccessInfos = GetSchoolAccessInfos(row);
 
             model.EquipmentAccessInfos = GetEquipmentAccessInfos(row);

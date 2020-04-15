@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using FFRKApi.Api.FFRK.Constants;
@@ -57,7 +58,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Characters, it is faster to get each individual Character instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Character&gt;</see>
@@ -86,7 +87,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Ramza" in the IdList (the id is 192 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/4
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/192 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/192 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -104,7 +105,7 @@ namespace FFRKApi.Api.FFRK.Controllers
 
             IEnumerable<D.Character> result = _mapper.Map<IEnumerable<D.Character>>(model);
 
-            return new JsonResult(result, new JsonSerializerSettings() { Formatting = Formatting.Indented });
+            return new JsonResult(result, new JsonSerializerOptions() { WriteIndented = true });
         }
 
         /// <summary>
@@ -116,7 +117,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Characters/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -144,7 +145,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Characters with "Cid" in their name.
         /// - You can straight away call this api: api/v1.0/Characters/Name/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/Name/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/Name/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -174,7 +175,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Rod" in the IdList (the id is 8 in this case)
         /// - Finally you call this api: api/v1.0/Characters/Equipment/8
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/Equipment/8 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/Equipment/8 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="equipmentType">the integer id for the desired EquipmentType; it can be found in the EquipmentType TypeList</param>
         /// <response code="200">
@@ -204,7 +205,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Combat" in the IdList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Characters/School/5/4
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/School/5/4 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/School/5/4 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="schoolType">the integer id for the desired SchoolType; it can be found in the SchoolType TypeList</param>
         /// <param name="schoolMinLevel">the integer that specifies the minimum access level to an Ability School that a Character needs to be returned from this api call.</param>
@@ -245,7 +246,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the Character specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/Characters/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Characters/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Characters/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Character object that contains the search criteria</param>
         /// <response code="200">

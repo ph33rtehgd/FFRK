@@ -50,7 +50,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - There is only one experience record because it contains the entire experience table from Enlir showing 
         /// you how much experience is required to level up Tyro, All other characters (as a group), and Magicites.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Experiences (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Experiences (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Experience&gt;</see>

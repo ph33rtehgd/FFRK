@@ -64,7 +64,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Events, it is faster to get each individual Event instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Event&gt;</see>
@@ -93,7 +93,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "To Slay a Sorceress" in the IdList (the id is 10 in this case)
         /// - Finally you call this api: api/v1.0/Events/10
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/10 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/10 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="eventId">the integer id for the desired Event; it can be found in the Event IdList</param>
         /// <response code="200">
@@ -121,7 +121,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Dungeons with "Reborn" in their name.
         /// - You can straight away call this api: api/v1.0/Events/Name/reborn";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/Name/reborn (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/Name/reborn (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="eventName">the string that must be a part of a Events's name in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -151,7 +151,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Events/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -181,7 +181,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Challenge Event" in the TypeList (the id is 1 in this case)
         /// - Finally you call this api: api/v1.0/Events/EventType/1
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/EventType/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/EventType/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="eventType">the integer id for the desired EventType; it can be found in the EventType TypeList</param>
         /// <response code="200">
@@ -209,7 +209,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Hero Records for a Character whose name includes "Cid".
         /// - You can straight away call this api: api/v1.0/Events/HeroRecords/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/HeroRecords/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/HeroRecords/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name that has a Hero Record rewarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">
@@ -237,7 +237,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Memory Crystal 1 for a Character whose name includes "Cid".
         /// - You can straight away call this api: api/v1.0/Events/MemoryCrystal1/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryCrystal1/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryCrystal1/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name that has a Memory Crystal 1 rewarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">
@@ -265,7 +265,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Memory Crystal 2 for a Character whose name includes "Cid".
         /// - You can straight away call this api: api/v1.0/Events/MemoryCrystal2/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryCrystal2/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryCrystal2/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name that has a Memory Crystal 2 rewarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">
@@ -293,7 +293,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Memory Crystal 2 for a Character whose name includes "Cid".
         /// - You can straight away call this api: api/v1.0/Events/MemoryCrystal3/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryCrystal3/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryCrystal3/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name that has a Memory Crystal 3 rewarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">
@@ -321,7 +321,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         ///// Sample Use Case - You want to find out data about all Events that reward a Soul of Hero.
         ///// - You can straight away call this api: api/v1.0/Events/SoulOfHero";
         ///// <br /> 
-        ///// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/SoulOfHero (or use Try It Out to see data in this page)
+        ///// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/SoulOfHero (or use Try It Out to see data in this page)
         ///// </remarks>
         ///// <response code="200">
         /////     <see>IEnumerable&lt;Event&gt;</see>
@@ -348,7 +348,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         ///// Sample Use Case - You want to find out data about all Events that reward a Memory Lode 1.
         ///// - You can straight away call this api: api/v1.0/Events/MemoryLode1";
         ///// <br /> 
-        ///// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryLode1 (or use Try It Out to see data in this page)
+        ///// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryLode1 (or use Try It Out to see data in this page)
         ///// </remarks>
         ///// <response code="200">
         /////     <see>IEnumerable&lt;Event&gt;</see>
@@ -375,7 +375,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         ///// Sample Use Case - You want to find out data about all Events that reward a Memory Lode 2.
         ///// - You can straight away call this api: api/v1.0/Events/MemoryLode2";
         ///// <br /> 
-        ///// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryLode2 (or use Try It Out to see data in this page)
+        ///// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryLode2 (or use Try It Out to see data in this page)
         ///// </remarks>
         ///// <response code="200">
         /////     <see>IEnumerable&lt;Event&gt;</see>
@@ -402,7 +402,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         ///// Sample Use Case - You want to find out data about all Events that reward a Memory Lode 3.
         ///// - You can straight away call this api: api/v1.0/Events/MemoryLode3";
         ///// <br /> 
-        ///// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/MemoryLode3 (or use Try It Out to see data in this page)
+        ///// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/MemoryLode3 (or use Try It Out to see data in this page)
         ///// </remarks>
         ///// <response code="200">
         /////     <see>IEnumerable&lt;Event&gt;</see>
@@ -429,7 +429,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Wardrobe Records for an Event whose name includes "Cid".
         /// - You can straight away call this api: api/v1.0/Events/WardrobeRecord/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/WardrobeRecord/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/WardrobeRecord/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterName">the string that must be a part of a Character's name that has a Wardrobe Record rewarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">
@@ -457,7 +457,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Events that reward Abilities whose name includes "Fir".
         /// - You can straight away call this api: api/v1.0/Events/Abilities/fir";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Events/Abilities/fir (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Events/Abilities/fir (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityName">the string that must be a part of an Ability's name that is awarded in an Event for that Event to be returned by this api call.</param>
         /// <response code="200">

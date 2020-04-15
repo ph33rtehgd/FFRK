@@ -55,7 +55,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of BraveActions, it is faster to get each individual BraveActions instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveActions (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveActions (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;BraveAction&gt;</see>
@@ -84,7 +84,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Riot Fire" in the IdList
         /// - Finally you call this api: api/v1.0/BraveActions/{id}
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="braveActionId">the integer id for the desired BraveAction; it can be found in the BraveAction IdList</param>
         /// <response code="200">
@@ -114,7 +114,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "BLK" in the TypeList (the id is 2 in this case)
         /// - Finally you call this api: api/v1.0/BraveActions/AbilityType/2
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveAction/AbilityType/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveAction/AbilityType/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -144,7 +144,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Terra" in the IdList
         /// - Finally you call this api: api/v1.0/Commands/Character/{id}
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveActions/Character/{id} (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveActions/Character/{id} (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -174,7 +174,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Black Magic" in the TypeList
         /// - Finally you call this api: api/v1.0/Commands/School/{id}
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveActions/School/{id} (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveActions/School/{id} (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="schoolType">the integer id for the desired School; it can be found in the SchoolType TypeList</param>
         /// <response code="200">
@@ -204,7 +204,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/BraveAction/Element/5
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveActions/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveActions/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired Element; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -251,7 +251,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the Command specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/Abilities/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/BraveActions/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/BraveActions/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Command object that contains the search criteria</param>
         /// <response code="200">

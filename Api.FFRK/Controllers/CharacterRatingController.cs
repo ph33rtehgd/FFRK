@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using FFRKApi.Api.FFRK.Constants;
@@ -62,7 +63,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// In addition to translating the Japanese role info to English, the English string has been broken into its component parts
         /// and assigned to the Roles list property.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/AltemaRatings (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/AltemaRatings (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;AltemaCharacterInfo&gt;</see>
@@ -98,7 +99,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// and LM2 (e.g. Trance, 35% Chance to Dualcast Spellblade)
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RatingPools (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RatingPools (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;RatingPool&gt;</see>
@@ -130,7 +131,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// such as proficient schools, Legend Materia, Legend Materia Relics, nad of course the Altema Rating and Roles.
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/CharacterRating (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/CharacterRating (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;CharacterRatingContextInfo&gt;</see>
@@ -161,7 +162,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// such as proficient schools, Legend Materia, Legend Materia Relics, nad of course the Altema Rating and Roles.
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/CharacterRating/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/CharacterRating/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;CharacterRatingContextInfo&gt;</see>
@@ -178,7 +179,7 @@ namespace FFRKApi.Api.FFRK.Controllers
 
             IEnumerable<D.CharacterRatingContextInfo> result = _mapper.Map<IEnumerable<D.CharacterRatingContextInfo>>(model);
 
-            return new JsonResult(result, new JsonSerializerSettings() { Formatting = Formatting.Indented });
+            return new JsonResult(result, new JsonSerializerOptions() { WriteIndented = true });
         }
 
         /// <summary>
@@ -192,7 +193,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// such as proficient schools, Legend Materia, Legend Materia Relics, nad of course the Altema Rating and Roles.
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/CharacterRating/cid (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/CharacterRating/cid (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;CharacterRatingContextInfo&gt;</see>
@@ -209,7 +210,7 @@ namespace FFRKApi.Api.FFRK.Controllers
 
             IEnumerable<D.CharacterRatingContextInfo> result = _mapper.Map<IEnumerable<D.CharacterRatingContextInfo>>(model);
 
-            return new JsonResult(result, new JsonSerializerSettings(){Formatting = Formatting.Indented});
+            return new JsonResult(result, new JsonSerializerOptions() { WriteIndented = true });
         } 
 
         #endregion

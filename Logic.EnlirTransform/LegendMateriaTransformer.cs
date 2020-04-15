@@ -49,6 +49,7 @@ namespace FFRKApi.Logic.EnlirTransform
             model.Effect = row.Effect;
             model.MasteryBonus = row.Master;
             model.EnlirId = row.ID;
+            model.Anima = row.Anima;
             model.IsInGlobal = _stringToBooleanConverter.ConvertFromStringToBool(row.IsInGlobal);
             model.IsChecked = _stringToBooleanConverter.ConvertFromStringToBool(row.Checked);
 

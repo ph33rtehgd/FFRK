@@ -28,6 +28,8 @@ namespace FFRKApi.Model.EnlirTransform
 
         public StatsByLevelInfo StatIncrementsForLegendSpheres { get; set; }
 
+        public string IntroducingEventRecordBoard { get; set; }
+
         public IEnumerable<SchoolAccessInfo> SchoolAccessInfos { get; set; }
 
         public IEnumerable<EquipmentAccessInfo> EquipmentAccessInfos { get; set; }

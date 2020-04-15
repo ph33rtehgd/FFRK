@@ -55,7 +55,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Statuses, it is faster to get each individual Status instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Status&gt;</see>
@@ -84,7 +84,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "Stop" in the IdList (the id is 7 in this case)
         /// - Finally you call this api: api/v1.0/Statuses/7
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses/7 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses/7 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="statusId">the integer id for the desired Status; it can be found in the Status IdList</param>
         /// <response code="200">
@@ -112,7 +112,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Statuses with "Doom" in their Coded Name.
         /// - You can straight away call this api: api/v1.0/Statuses/CodedName/doom";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses/CodedName/doom (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses/CodedName/doom (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="codedName">the string that must be a part of a Status's Coded Name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -140,7 +140,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Statuses with "Reraise" in their Common Name.
         /// - You can straight away call this api: api/v1.0/Statuses/CommonName/reraise";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses/CommonName/reraise (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses/CommonName/reraise (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="commonName">the string that must be a part of a Status's Common Name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -168,7 +168,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Statuses with "Returns" (i.e., a Radiant Shield) in their Effect.
         /// - You can straight away call this api: api/v1.0/Statuses/Effect/returns";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses/Effect/returns (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses/Effect/returns (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Status's Effect in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -196,7 +196,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Statuses with "Not used" in their Notes.
         /// - You can straight away call this api: api/v1.0/Statuses/Notes/not%20used";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Statuses/Notes/not%20used (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Statuses/Notes/not%20used (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="notes">the string that must be a part of a Status's Notes in order for them to be returned by this api call.</param>
         /// <response code="200">

@@ -19,6 +19,8 @@
         public string RelicName { get; set; }
         public int RelicId { get; set; }//filled in during merge phase
         public string EnlirId { get; set; }
+        public string Anima { get; set; }
+        
         public bool IsInGlobal { get; set; }
         public bool IsChecked { get; set; }
     }

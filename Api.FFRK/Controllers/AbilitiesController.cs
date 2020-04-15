@@ -56,7 +56,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Abilities, it is faster to get each individual ability instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Ability&gt;</see>
@@ -85,7 +85,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Firaja" in the IdList (the id is 4 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/4
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/4 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/4 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityId">the integer id for the desired Ability; it can be found in the Ability IdList</param>
         /// <response code="200">
@@ -115,7 +115,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "NIN" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/AbilityType/5";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/AbilityType/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/AbilityType/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -143,7 +143,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Abilities that have an Rarity of 5 (as in 5*)
         /// - You can straight away call this api: api/v1.0/Abilities/Rarity/5";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/Rarity/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/Rarity/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="rarity">the integer rarity that all returned Abilities need to share</param>
         /// <response code="200">
@@ -173,7 +173,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Dancer" in the TypeList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/School/6";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/School/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/School/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="schoolType">the integer id for the desired SchoolType; it can be found in the SchoolType TypeList</param>
         /// <response code="200">
@@ -203,7 +203,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -251,7 +251,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the Ability specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/Abilities/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Abilities/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Abilities/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Ability object that contains the search criteria</param>
         /// <response code="200">

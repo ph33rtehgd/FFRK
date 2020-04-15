@@ -29,6 +29,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetExperienceIdList();
         IActionResult GetLegendMateriaIdList();
         IActionResult GetLegendSpheredList();
+        IActionResult GetLimitBreakIdList();
         IActionResult GetMagiciteIdList();
         IActionResult GetMagiciteSkillIdList();
         IActionResult GetMissionIdList();
@@ -38,6 +39,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetRelicIdList();
         IActionResult GetSoulBreakIdList();
         IActionResult GetStatusIdList();
+        IActionResult GetSynchroCommandIdList();
     }
 
     [Produces(RouteConstants.ContentType_ApplicationJson)]
@@ -83,7 +85,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally 
         /// so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IdListBundle</see>
@@ -116,7 +118,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities api and find info for the Firaja ability. 
         /// The results of this method would give you the id for Firaja that you need use in that Abilities Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Ability (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Ability (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -147,7 +149,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Characters api and find info for Cid (XIV). 
         /// The results of this method would give you the id for Cid (XIV) that you need use in that Characters Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Character (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Character (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -172,12 +174,12 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Each value in this IdList is created from a row in the Enlir "Commands" sheet, using a generated integer as the Key and the string value in the "Name" column as the Value. 
         /// Some example values are "Book of Despair", "Riddle of the Flame", "Water Barrage" etc.
         /// <br /> 
-        /// Enlir Mapping - sheet: "Commands", column "Name" (which then gets a synthesized integer id associated with it in this IdList)
+        /// Enlir Mapping - sheet: "Burst", column "Name" (which then gets a synthesized integer id associated with it in this IdList)
         /// <br /> 
         /// Sample Use Case - You would call this method if you wanted to call the Commands api and find info for Water Barrage. 
         /// The results of this method would give you the id for Water Barrage that you need use in that Commands Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Command (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Command (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -207,7 +209,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the BraveActions api and find info for Riot Fire. 
         /// The results of this method would give you the id fo rRiot Fire that you need use in that BraveActions Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/BraveAction (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/BraveAction (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -237,7 +239,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Dungeons api and find info for Big Bridge. 
         /// The results of this method would give you the id for Big Bridge that you need to use in that Dungeons Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Dungeon (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Dungeon (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -267,7 +269,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Events api and find info for Masters of the Planet. 
         /// The results of this method would give you the id for Masters of the Planet that you need to use in that Events Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Event (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Event (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -296,7 +298,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// <br /> 
         /// Sample Use Case - No real case; this method is just included for consistency
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Experience (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Experience (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -326,7 +328,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the LegendMaterias api and find info for Master of Weapons. 
         /// The results of this method would give you the id for Master of Weapons that you need to use in that LegendMaterias Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/LegendMateria (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/LegendMateria (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -356,7 +358,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the LegendSpheres api and find info for Refia's sphere denoted by the synthesized name Refia - DEF +10. 
         /// The results of this method would give you the id for Refia - DEF +10 that you need to use in that LegendMaterias Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/LegendSphere (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/LegendSphere (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -375,6 +377,36 @@ namespace FFRKApi.Api.FFRK.Controllers
         }
 
         /// <summary>
+        /// Get the IdList for LimitBreak
+        /// </summary>
+        /// <remarks>
+        /// Each value in this IdList is created from a row in the Enlir "Limit Breaks" sheet, using a generated integer as the Key and the string value in the "Name" column as the Value. 
+        /// Some example values are "Cherished Rose", "Scions' Meteor", etc.
+        /// <br /> 
+        /// Enlir Mapping - sheet: "Limit Breaks", column "Name" (which then gets a synthesized integer id associated with it in this IdList)
+        /// <br /> 
+        /// Sample Use Case - You would call this method if you wanted to call the LimitBreaks api and find info for Cherished Rose. 
+        /// The results of this method would give you the id for Cherished Rose that you need to use in that LimitBreaks Api call
+        /// <br /> 
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/LimitBreaks (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.IdListsRoute_LimitBreak)]
+        [SwaggerOperation(nameof(GetLimitBreakIdList))]
+        [ProducesResponseType(typeof(IEnumerable<KeyValuePair<int, string>>), (int)HttpStatusCode.OK)]
+        public IActionResult GetLimitBreakIdList()
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetLimitBreakIdList)}");
+
+            IEnumerable<KeyValuePair<int, string>> result = _idListsLogic.GetLimitBreakIdList();
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
         /// Get the IdList for Magicite
         /// </summary>
         /// <remarks>
@@ -386,7 +418,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Magicites api and find info for Kraken. 
         /// The results of this method would give you the id for Kraken that you need to use in that Events Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Magicite (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Magicite (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -416,7 +448,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the MagiciteSkills api and find info for Wendigo (XII) - Blizzara. 
         /// The results of this method would give you the id for Wendigo (XII) - Blizzara that you need to use in that MagiciteSkills Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/MagiciteSkill (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/MagiciteSkill (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -446,7 +478,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Missions api and find info for Bring a character to Level 99. 
         /// The results of this method would give you the id for Bring a character to Level 99 that you need to use in that Missions Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Mission (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Mission (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -476,7 +508,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Others api and find info for Shattering Finish. 
         /// The results of this method would give you the id for Shattering Finish that you need to use in that Others Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Other (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Other (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -506,7 +538,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the RecordMaterias api and find info for Bartz - World Traveler. 
         /// The results of this method would give you the id for Bartz - World Traveler that you need to use in that RecordMaterias Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/RecordMateria (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/RecordMateria (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -536,7 +568,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the RecordSpheres api and find info for Onion Knight - Warrior. 
         /// The results of this method would give you the id for Onion Knight - Warrior that you need to use in that RecordSpheres Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/RecordSphere (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/RecordSphere (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -566,7 +598,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Relics api and find info for Chicken Knife - V. 
         /// The results of this method would give you the id for Chicken Knife - V that you need to use in that Relics Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Relic (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Relic (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -596,7 +628,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the SoulBreaks api and find info for Sentinel's Grimoire. 
         /// The results of this method would give you the id for Sentinel's Grimoire that you need to use in that SoulBreaks Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/SoulBreak (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/SoulBreak (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -626,7 +658,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Statuses api and find info for Last Stand. 
         /// The results of this method would give you the id for Last Stand that you need to use in that Statuses Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/IdLists/Status (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/Status (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -640,6 +672,36 @@ namespace FFRKApi.Api.FFRK.Controllers
             _logger.LogInformation($"Controller Method invoked: {nameof(GetStatusIdList)}");
 
             IEnumerable<KeyValuePair<int, string>> result = _idListsLogic.GetStatusIdList();
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
+        /// Get the IdList for SynchroCommand
+        /// </summary>
+        /// <remarks>
+        /// Each value in this IdList is created from a row in the Enlir "Synchro" sheet, using a generated integer as the Key and the string value in the "Name" column as the Value. 
+        /// Some example values are "Synchrospell Water", "Wrathful Strike", "Burning Combo" etc.
+        /// <br /> 
+        /// Enlir Mapping - sheet: "Synchro", column "Name" (which then gets a synthesized integer id associated with it in this IdList)
+        /// <br /> 
+        /// Sample Use Case - You would call this method if you wanted to call the Synchro api and find info for Synchrospell Water. 
+        /// The results of this method would give you the id for Synchrospell Water that you need use in that Commands Api call
+        /// <br /> 
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/IdLists/SynchroCommand (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.IdListsRoute_SynchroCommand)]
+        [SwaggerOperation(nameof(GetSynchroCommandIdList))]
+        [ProducesResponseType(typeof(IEnumerable<KeyValuePair<int, string>>), (int)HttpStatusCode.OK)]
+        public IActionResult GetSynchroCommandIdList()
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetSynchroCommandIdList)}");
+
+            IEnumerable<KeyValuePair<int, string>> result = _idListsLogic.GetSynchroCommandIdList();
 
             return new ObjectResult(result);
         }

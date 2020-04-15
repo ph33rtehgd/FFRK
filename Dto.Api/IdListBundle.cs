@@ -24,5 +24,6 @@ namespace FFRKApi.Dto.Api
         public IEnumerable<KeyValuePair<int, string>> Relic { get; set; }
         public IEnumerable<KeyValuePair<int, string>> SoulBreak { get; set; }
         public IEnumerable<KeyValuePair<int, string>> Status { get; set; }
+        public IEnumerable<KeyValuePair<int, string>> SynchroCommand { get; set; }
     }
 }

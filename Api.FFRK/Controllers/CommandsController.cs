@@ -58,7 +58,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Commands, it is faster to get each individual Command instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Command&gt;</see>
@@ -87,7 +87,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Keeper's Tome - Book of Retribution" in the IdList (the id is 2 in this case)
         /// - Finally you call this api: api/v1.0/Commands/2
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="commandId">the integer id for the desired Command; it can be found in the Command IdList</param>
         /// <response code="200">
@@ -117,7 +117,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "BLK" in the TypeList (the id is 2 in this case)
         /// - Finally you call this api: api/v1.0/Commands/AbilityType/2
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/AbilityType/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/AbilityType/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -147,7 +147,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/Commands/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -177,7 +177,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Summoning" in the TypeList (the id is 19 in this case)
         /// - Finally you call this api: api/v1.0/Commands/School/19
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/School/19 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/School/19 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="schoolType">the integer id for the desired School; it can be found in the SchoolType TypeList</param>
         /// <response code="200">
@@ -207,7 +207,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Commands/School/19
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired Element; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -254,7 +254,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the Command specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/Abilities/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Commands/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Commands/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Command object that contains the search criteria</param>
         /// <response code="200">

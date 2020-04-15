@@ -51,7 +51,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// The banner structure and contents are predefined and associated to an id for convenient invocation
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Banners/PullResults/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Banners/PullResults/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;PullResultRow&gt;</see>
@@ -80,7 +80,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// The banner structure and contents are predefined and associated to an id for convenient invocation
         /// 
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Banners/PullResults/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Banners/PullResults/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;PullResultRow&gt;</see>

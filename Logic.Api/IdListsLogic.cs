@@ -24,6 +24,7 @@ namespace FFRKApi.Logic.Api
         IEnumerable<KeyValuePair<int, string>> GetExperienceIdList();
         IEnumerable<KeyValuePair<int, string>> GetLegendMateriaIdList();
         IEnumerable<KeyValuePair<int, string>> GetLegendSpheredList();
+        IEnumerable<KeyValuePair<int, string>> GetLimitBreakIdList();
         IEnumerable<KeyValuePair<int, string>> GetMagiciteIdList();
         IEnumerable<KeyValuePair<int, string>> GetMagiciteSkillIdList();
         IEnumerable<KeyValuePair<int, string>> GetMissionIdList();
@@ -33,6 +34,7 @@ namespace FFRKApi.Logic.Api
         IEnumerable<KeyValuePair<int, string>> GetRelicIdList();
         IEnumerable<KeyValuePair<int, string>> GetSoulBreakIdList();
         IEnumerable<KeyValuePair<int, string>> GetStatusIdList();
+        IEnumerable<KeyValuePair<int, string>> GetSynchroCommandIdList();
     }
 
     public class IdListsLogic : IIdListsLogic
@@ -74,6 +76,7 @@ namespace FFRKApi.Logic.Api
                               Experience = _enlirRepository.GetMergeResultsContainer().ExperienceIdList,
                               LegendMateria = _enlirRepository.GetMergeResultsContainer().LegendMateriaIdList,
                               LegendSphere = _enlirRepository.GetMergeResultsContainer().LegendSphereIdList,
+                              LimitBreak = _enlirRepository.GetMergeResultsContainer().LimitBreakIdList,
                               Magicite = _enlirRepository.GetMergeResultsContainer().MagiciteIdList,
                               MagiciteSkill = _enlirRepository.GetMergeResultsContainer().MagiciteSkillIdList,
                               Mission = _enlirRepository.GetMergeResultsContainer().MissionList,
@@ -82,8 +85,9 @@ namespace FFRKApi.Logic.Api
                               RecordSphere = _enlirRepository.GetMergeResultsContainer().RecordSphereIdList,
                               Relic = _enlirRepository.GetMergeResultsContainer().RelicIdList,
                               SoulBreak = _enlirRepository.GetMergeResultsContainer().SoulBreakIdList,
-                              Status = _enlirRepository.GetMergeResultsContainer().StatusIdList
-                          };
+                              Status = _enlirRepository.GetMergeResultsContainer().StatusIdList,
+                              SynchroCommand = _enlirRepository.GetMergeResultsContainer().SynchroCommandIdList
+                };
 
                 _cacheProvider.ObjectSet(cacheKey, results);
             }
@@ -244,6 +248,23 @@ namespace FFRKApi.Logic.Api
             return results;
         }
 
+        public IEnumerable<KeyValuePair<int, string>> GetLimitBreakIdList()
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetLimitBreakIdList)}");
+
+            string cacheKey = $"{nameof(GetLimitBreakIdList)}";
+            IList<KeyValuePair<int, string>> results = _cacheProvider.ObjectGet<IList<KeyValuePair<int, string>>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().LimitBreakIdList;
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
         public IEnumerable<KeyValuePair<int, string>> GetMagiciteIdList()
         {
             _logger.LogInformation($"Logic Method invoked: {nameof(GetMagiciteIdList)}");
@@ -390,6 +411,23 @@ namespace FFRKApi.Logic.Api
             if (results == null)
             {
                 results = _enlirRepository.GetMergeResultsContainer().StatusIdList;
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
+        public IEnumerable<KeyValuePair<int, string>> GetSynchroCommandIdList()
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetSynchroCommandIdList)}");
+
+            string cacheKey = $"{nameof(GetSynchroCommandIdList)}";
+            IList<KeyValuePair<int, string>> results = _cacheProvider.ObjectGet<IList<KeyValuePair<int, string>>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().SynchroCommandIdList;
 
                 _cacheProvider.ObjectSet(cacheKey, results);
             }

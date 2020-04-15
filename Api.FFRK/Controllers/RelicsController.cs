@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using D = FFRKApi.Dto.Api;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Text.Json;
 
 namespace FFRKApi.Api.FFRK.Controllers
 {
@@ -64,7 +65,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Relics, it is faster to get each individual Relic instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Relic&gt;</see>
@@ -93,7 +94,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "Ichigeki" and "VI" in the IdList (the id is 32 in this case)
         /// - Finally you call this api: api/v1.0/Relics/32
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/32 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/32 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="relicId">the integer id for the desired Relic; it can be found in the Relic IdList</param>
         /// <response code="200">
@@ -125,7 +126,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Alternatively, from a different api call you may have already retrieved a list of Relic ids.
         /// - Finally you call this api: api/v1.0/Relics/ {POST Body - array of integers}
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/ [POST] (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/ [POST] (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="relicId">the integer id for the desired Relic; it can be found in the Relic IdList</param>
         /// <response code="200">
@@ -154,7 +155,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Relics with "Dragon" in their name.
         /// - You can straight away call this api: api/v1.0/Relics/Name/dragon";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Name/dragon (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Name/dragon (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="relicName">the string that must be a part of a Relic's name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -184,7 +185,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Relics/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -214,7 +215,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/Relics/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -232,7 +233,7 @@ namespace FFRKApi.Api.FFRK.Controllers
 
             IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
 
-            return new JsonResult(result, new JsonSerializerSettings() { Formatting = Formatting.Indented });
+            return new JsonResult(result, new JsonSerializerOptions() { WriteIndented = true });
         }
 
         /// <summary>
@@ -244,7 +245,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Sentinel's Grimoire" in the IdList (the id is 3 in this case)
         /// - Finally you call this api: api/v1.0/Relics/SoulBreak/3
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/SoulBreak/3 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/SoulBreak/3 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="soulBreakId">the integer id for the desired Soul Break that a Relic are associated with; it can be found in the SoulBreak IdList</param>
         /// <response code="200">
@@ -274,7 +275,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Cherished Rose" in the IdList (the id is 1 in this case)
         /// - Finally you call this api: api/v1.0/Relics/LimitBreak/1
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/LimitBreak/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/LimitBreak/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="limitBreakId">the integer id for the desired Limit Break that a Relic are associated with; it can be found in the LimitBreak IdList</param>
         /// <response code="200">
@@ -304,7 +305,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Gifted Bard" in the IdList (the id is 108 in this case)
         /// - Finally you call this api: api/v1.0/Relics/LegendMateria/108
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/LegendMateria/108 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/LegendMateria/108 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="legendMateriaId">the integer id for the desired LegendMateria that a Relic is associated with; it can be found in the LegendMateria IdList</param>
         /// <response code="200">
@@ -334,7 +335,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Rod" in the IdList (the id is 8 in this case)
         /// - Finally you call this api: api/v1.0/Relics/RelicType/8
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/RelicType/8 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/RelicType/8 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="relicType">the integer id for the desired RelicType; it can be found in the RelicType TypeList</param>
         /// <response code="200">
@@ -362,7 +363,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Relics with "Wind" as their effect.
         /// - You can straight away call this api: api/v1.0/Relics/Effect/wind";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Effect/wind (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Effect/wind (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Relic's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -390,7 +391,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Relics that have an Rarity of 5 (as in 5*)
         /// - You can straight away call this api: api/v1.0/Relics/Rarity/5";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Rarity/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Rarity/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="rarity">the integer rarity that all returned Relics need to share</param>
         /// <response code="200">
@@ -422,7 +423,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "MAX" in the TypeList (the id is 3 in this case)
         /// - Finally you call this api: api/v1.0/Relics/Stat/3/2/180
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Rarity/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Rarity/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="statSetType">e.g. Max, Base</param>
         /// <param name="statType">e.g. ATK, DEF</param>
@@ -475,7 +476,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the Relic specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/Relics/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Relics/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Relic object that contains the search criteria</param>
         /// <response code="200">

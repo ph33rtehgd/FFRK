@@ -55,7 +55,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// Use Case - If you only need to access details for a small number of Dungeons, it is faster to get each individual Dungeons instance using a separate api call, but if 
     //    /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <response code="200">
     //    ///     <see>IEnumerable&lt;Dungeon&gt;</see>
@@ -84,7 +84,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// - Then you look up the integer Key associated with the Value of "Mist Cave" in the IdList (the id is 61 in this case)
     //    /// - Finally you call this api: api/v1.0/Dungeons/61
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons/61 (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons/61 (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <param name="dungeonId">the integer id for the desired Dungeon; it can be found in the Dungeon IdList</param>
     //    /// <response code="200">
@@ -114,7 +114,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
     //    /// - Finally you call this api: api/v1.0/Dungeons/RealmType/6
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons/RealmType/6 (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons/RealmType/6 (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
     //    /// <response code="200">
@@ -142,7 +142,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// Sample Use Case - You want to find out data about all Dungeons with "Lunar" in their name.
     //    /// - You can straight away call this api: api/v1.0/Dungeons/Name/lunar";
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons/Name/lunar (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons/Name/lunar (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <param name="dungeonName">the string that must be a part of a Dungeon's name in order for them to be returned by this api call.</param>
     //    /// <response code="200">
@@ -172,7 +172,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// Sample Use Case - You want to find out data about all Dungeons that rewards 4* Bravery Motes.
     //    /// - You can straight away call this api: api/v1.0/Dungeons/Rewards/bravery/4";
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Rewards/{itemName}/{starLevel} (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Rewards/{itemName}/{starLevel} (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <param name="itemName">the string that must be a part of one of the Dungeon's reward items in order for the Dungeon to be returned by this api call.</param>
     //    /// <param name="starlevel">the integer star level of the item; use 0 if the item has no star level (like Mythril, for example).</param>
@@ -222,7 +222,7 @@ namespace FFRKApi.Api.FFRK.Controllers
     //    /// - You attach the Dungeon specification object as the body of a Post request.
     //    /// - Finally you call this api: api/v1.0/Dungeons/Search [POST];
     //    /// <br /> 
-    //    /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Dungeons/Search (or use Try It Out to see data in this page)
+    //    /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Dungeons/Search (or use Try It Out to see data in this page)
     //    /// </remarks>
     //    /// <param name="searchPrototype">the Dungeon object that contains the search criteria</param>
     //    /// <response code="200">

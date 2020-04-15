@@ -25,6 +25,7 @@ namespace FFRKApi.Dto.Api
         public StatsByLevelInfo StatIncrementsForRecordSpheres { get; set; }
 
         public StatsByLevelInfo StatIncrementsForLegendSpheres { get; set; }
+        public string IntroducingEventRecordBoard { get; set; }
 
         public IEnumerable<SchoolAccessInfo> SchoolAccessInfos { get; set; }
 

@@ -62,7 +62,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of SoulBreaks, it is faster to get each individual SoulBreak instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;SoulBreak&gt;</see>
@@ -91,7 +91,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "SoulBreak" in the IdList (the id is 238 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/238
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/238 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/238 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="soulBreakId">the integer id for the desired SoulBreak; it can be found in the SoulBreak IdList</param>
         /// <response code="200">
@@ -121,7 +121,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "PHY" in the TypeList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/SoulBreaks/AbilityType/6";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/AbilityType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/AbilityType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -149,7 +149,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all SoulBreaks with "Dragon" in their name.
         /// - You can straight away call this api: api/v1.0/SoulBreaks/Name/dragon";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Name/dragon (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Name/dragon (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="soulBreakName">the string that must be a part of a SoulBreak's name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -179,7 +179,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -209,7 +209,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -237,7 +237,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all SoulBreaks that have a multiplier greater than or equal to 6.
         /// - You can straight away call this api: api/v1.0/SoulBreaks/Multiplier/6";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Multiplier/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Multiplier/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="multiplier">the integer multiplier value</param>
         /// <response code="200">
@@ -267,7 +267,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -295,7 +295,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all SoulBreaks with "Haste" in their Effect text.
         /// - You can straight away call this api: api/v1.0/SoulBreaks/Effect/haste";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Effect/haste (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Effect/haste (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a SoulBreak's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -325,7 +325,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "CSB" in the IdList (the id is 9 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/Tier/9
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Tier/9 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Tier/9 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired soulBreakTier; it can be found in the soulBreakTier TypeList</param>
         /// <response code="200">
@@ -353,7 +353,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all SoulBreaks with "MND" as the stat improved upon mastery.
         /// - You can straight away call this api: api/v1.0/SoulBreaks/MasteryBonus/mnd";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/MasteryBonus/mnd (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/MasteryBonus/mnd (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="masteryBonusText">the string that must be a part of a SoulBreak's MasteryBonus text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -383,7 +383,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Astra" in the IdList (the id is 86 in this case)
         /// - Finally you call this api: api/v1.0/SoulBreaks/Status/86
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Status/86 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Status/86 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="statusId">the integer id for the desired Status; it can be found in the Status IdList</param>
         /// <response code="200">
@@ -434,7 +434,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the SoulBreak specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/SoulBreaks [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/SoulBreaks/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/SoulBreaks/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Relic object that contains the search criteria</param>
         /// <response code="200">

@@ -51,7 +51,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of MagiciteSkills, it is faster to get each individual ability MagiciteSkills using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/MagiciteSkills (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/MagiciteSkills (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;MagiciteSkill&gt;</see>
@@ -80,7 +80,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "King Bomb" and "Short Fuse" in the IdList (the id is 19 in this case)
         /// - Finally you call this api: api/v1.0/MagiciteSkills/19
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/MagiciteSkills/19 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/MagiciteSkills/19 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="magiciteSkillId">the integer id for the desired MagiciteSkill; it can be found in the MagiciteSkill IdList</param>
         /// <response code="200">

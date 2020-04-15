@@ -81,7 +81,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally 
         /// so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>TypeListBundle</see>
@@ -113,7 +113,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities api and find all abilities that are of the NIN type. 
         /// The results of this method would give you the id for NIN that you need use in that Abilities Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/AbilityType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/AbilityType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -143,7 +143,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities Search api and include as a criteria that qualifying abilities must auto target the Highest HP% enemy. 
         /// The results of this method would give you the id for Highest HP% enemy that you need use in that Abilities Search Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/AutoTargetType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/AutoTargetType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -173,7 +173,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities Search api and include as a criteria that qualifying abilities must use the Magical damage formula. 
         /// The results of this method would give you the id for Magical that you need use in that Abilities Search Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/DamageFormulaType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/DamageFormulaType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -203,7 +203,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities api and find all abilities that have the Fire element. 
         /// The results of this method would give you the id for Fire that you need use in that Abilities Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/ElementType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/ElementType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -234,7 +234,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Characters api and find all characters who can use a Staff. 
         /// The results of this method would give you the id for Staff that you need use in that Characters Api call.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/EquipmentType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/EquipmentType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -264,7 +264,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Events api and find all events of type "Challenge Event". 
         /// The results of this method would give you the id for Challenge Event that you need use in that Events Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/EventType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/EventType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -294,7 +294,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Missions api and find all missions of type "Wayfarer". 
         /// The results of this method would give you the id for Wayfarer that you need use in that Missions Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/MissionType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/MissionType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -324,7 +324,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// <br /> 
         /// Sample Use Case - You would call this method so you could translate the OrbType ids returned by calls to the Abilities api into human readable descriptions like "Major Power"
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/OrbType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/OrbType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -355,7 +355,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Characters api and find all Characters belonging to the "III" Realm. 
         /// The results of this method would give you the id for III that you need use in that Characters Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/RealmType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/RealmType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -386,7 +386,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Relics api and find all Relics that were Shields. 
         /// The results of this method would give you the id for Shield that you need use in that Relics Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/RelicType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/RelicType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -417,7 +417,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Commands api and find all Soul Break Commands that belonged to the Sharpshooter School. 
         /// The results of this method would give you the id for Sharpshooter that you need use in that Commands Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/SchoolType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/SchoolType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -448,7 +448,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Relics api and find all relics that had Max values for some stat of higher than X value. 
         /// The results of this method would give you the id for Max stat set that you need use in that Relics Api call.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/StatSetType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/StatSetType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -480,7 +480,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Relics api and find all relics that had values for the MAG stat higher than X value. 
         /// The results of this method would give you the id for MAG stat that you need use in that Relics Api call.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/StatType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/StatType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -510,7 +510,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the SoulBreaks api and find all Soul Breaks that belonged to the USB tier. 
         /// The results of this method would give you the id for USB that you need use in that SoulBreaks Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/SoulBreakTierType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/SoulBreakTierType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -540,7 +540,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the LimitBreaks api and find all Limit Breaks that belonged to the USB tier. 
         /// The results of this method would give you the id for USB that you need use in that LimitBreaks Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/LimitBreakTierType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/LimitBreakTierType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>
@@ -570,7 +570,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You would call this method if you wanted to call the Abilities Search api and include as a criteria that qualifying abilities must target a single enemy. 
         /// The results of this method would give you the id for Single Enemy that you need use in that Abilities Search Api call
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/TypeLists/TargetType (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/TypeLists/TargetType (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;KeyValuePair&lt;int,string&gt;&gt;</see>

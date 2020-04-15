@@ -23,6 +23,7 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string IdListsRoute_Experience = "Experience";
         public const string IdListsRoute_LegendMateria = "LegendMateria";
         public const string IdListsRoute_LegendSphere = "LegendSphere";
+        public const string IdListsRoute_LimitBreak = "LimitBreak";
         public const string IdListsRoute_Magicite = "Magicite";
         public const string IdListsRoute_MagiciteSkill = "MagiciteSkill";
         public const string IdListsRoute_Mission = "Mission";
@@ -32,6 +33,7 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string IdListsRoute_Relic = "Relic";
         public const string IdListsRoute_SoulBreak = "SoulBreak";
         public const string IdListsRoute_Status = "Status";
+        public const string IdListsRoute_SynchroCommand = "SynchroCommand";
 
 
         //TypeList Routes

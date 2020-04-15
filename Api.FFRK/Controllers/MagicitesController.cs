@@ -72,7 +72,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Magicites, it is faster to get each individual ability Magicites using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendMaterias (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendMaterias (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Magicite&gt;</see>
@@ -101,7 +101,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "Wendigo" in the IdList (the id is 16 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/16
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/16 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/16 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="magiciteId">the integer id for the desired Magicite; it can be found in the Magicite IdList</param>
         /// <response code="200">
@@ -129,7 +129,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites with "Bomb" in their name.
         /// - You can straight away call this api: api/v1.0/Magicites/Name/bomb";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/Name/bomb (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/Name/bomb (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="magiciteName">the string that must be a part of a Magicites's name in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -159,7 +159,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -187,7 +187,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites that have a rarity of 4*.
         /// - You can straight away call this api: api/v1.0/Events/WardrobeRecord/cid";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/Rarity/4 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/Rarity/4 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="rarity">the integer rarity level (equates to star level) of the Magicites to be returned by this api call.</param>
         /// <response code="200">
@@ -217,7 +217,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -245,7 +245,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites whose Passive effect contains the text "Dampen".
         /// - You can straight away call this api: api/v1.0/Magicites/Effect/dampen";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/Effect/dampen (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/Effect/dampen (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Magicites's Passive Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -275,7 +275,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites whose Ultra Skills have "ice" in their name.
         /// - You can straight away call this api: api/v1.0/Magicites/UltraSkill/Name/ice";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/UltraSkill/Name/ice (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/UltraSkill/Name/ice (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="ultraSkillName">the string that must be a part of a Magicites Ultra Skill's name in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -305,7 +305,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "NAT" in the TypeList (the id is 4 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/UltraSkill/AbilityType/5";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/UltraSkill/AbilityType/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/UltraSkill/AbilityType/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -335,7 +335,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/UltraSkill/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/UltraSkill/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/UltraSkill/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -363,7 +363,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites whose Ultra Skill effect contains the text "Imperil".
         /// - You can straight away call this api: api/v1.0/Magicites/UltraSkill/Effect/imperil";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/UltraSkill/Effect/imperil (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/UltraSkill/Effect/imperil (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Magicites's Ultra Skill's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -395,7 +395,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "Liquid Flame" and "Fire" in the IdList (the id is 15 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/MagiciteSkill/15
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/MagiciteSkill/15 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/MagiciteSkill/15 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="magiciteSkillId">the integer id for the desired MagiciteSkill; it can be found in the MagiciteSkill IdList</param>
         /// <response code="200">
@@ -423,7 +423,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites having a Magicite Skill with "Lunge" in their name.
         /// - You can straight away call this api: api/v1.0/Magicites/MagiciteSkill/Name/lunge";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/MagiciteSkill/Name/lunge (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/MagiciteSkill/Name/lunge (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="magiciteSkillName">the string that must be a part of a Magicites's Magicite Skill name in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -453,7 +453,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "BLK" in the TypeList (the id is 2 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/MagiciteSkill/AbilityType/2";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/MagiciteSkill/AbilityType/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/MagiciteSkill/AbilityType/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -483,7 +483,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Magicites/MagiciteSkill/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/MagiciteSkill/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/MagiciteSkill/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -511,7 +511,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Magicites having  Magicite Skills whose Effect contains the text "Slow".
         /// - You can straight away call this api: api/v1.0/Magicites/MagiciteSkill/Effect/slow";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Magicites/MagiciteSkill/Effect/slow (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Magicites/MagiciteSkill/Effect/slow (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Magicites's Magicite Skill's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">

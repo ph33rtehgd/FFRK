@@ -55,7 +55,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Missions, it is faster to get each individual Mission instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Mission&gt;</see>
@@ -84,7 +84,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Create Shellga" in the IdList (the id is 12 in this case)
         /// - Finally you call this api: api/v1.0/Missions/12
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions/12 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions/12 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="missionId">the integer id for the desired Mission; it can be found in the Mission IdList</param>
         /// <response code="200">
@@ -114,7 +114,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Normal" in the TypeList (the id is 1 in this case)
         /// - Finally you call this api: api/v1.0/Missions/MissionType/1
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions/MissionType/1 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions/MissionType/1 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="missionType">the integer id for the desired MissionType; it can be found in the MissionType TypeList</param>
         /// <response code="200">
@@ -144,7 +144,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Mired in Crisis" in the IdList (the id is 199 in this case)
         /// - Finally you call this api: api/v1.0/Missions/Event/199
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions/Event/199 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions/Event/199 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="eventId">the integer id for the desired Event that Missions are associated with; it can be found in the Event IdList</param>
         /// <response code="200">
@@ -172,7 +172,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Missions with "Create" in their description.
         /// - You can straight away call this api: api/v1.0/Missions/Description/create";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions/Description/create (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions/Description/create (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="description">the string that must be a part of a Mission's description in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -200,7 +200,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Missions that reward "Dexterity Mote".
         /// - You can straight away call this api: api/v1.0/Missions/Reward/dexterity%20mote";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Missions/Reward/dexterity%20mote (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Missions/Reward/dexterity%20mote (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="rewardName">the string that must be a part of a Mission's reward text in order for it to be returned by this api call.</param>
         /// <response code="200">

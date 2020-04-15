@@ -18,16 +18,16 @@ namespace FFRKApi.Api.FFRK.Controllers
     public interface ILimitBreaksController
     {
         IActionResult GetAllLimitBreaks();
-        IActionResult GetLimitBreaksById(int LimitBreakId);
+        IActionResult GetLimitBreaksById(int limitBreakId);
         IActionResult GetLimitBreaksByAbilityType(int abilityType);
-        IActionResult GetLimitBreaksByName(string LimitBreakName);
+        IActionResult GetLimitBreaksByName(string limitBreakName);
         IActionResult GetLimitBreaksByRealm(int realmType);
         IActionResult GetLimitBreaksByCharacter(int characterId);
         IActionResult GetLimitBreaksByMultiplier(int multiplier);
         IActionResult GetLimitBreaksByElement(int elementType);
         IActionResult GetLimitBreaksByEffect(string effectText);
-        IActionResult GetLimitBreaksByTier(int LimitBreakTier);
-        IActionResult GetLimitBreaksByLimitBreakBonus(string masteryBonusText);
+        IActionResult GetLimitBreaksByTier(int limitBreakTier);
+        IActionResult GetLimitBreaksByLimitBreakBonus(string limitBreakBonusText);
         IActionResult GetLimitBreaksByStatus(int statusId);
         IActionResult GetLimitBreaksBySearch(D.LimitBreak searchPrototype);
     }
@@ -62,7 +62,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of LimitBreaks, it is faster to get each individual LimitBreak instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LimitBreak&gt;</see>
@@ -91,9 +91,9 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "LimitBreak" in the IdList (the id is 238 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/238
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/238 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/238 (or use Try It Out to see data in this page)
         /// </remarks>
-        /// <param name="LimitBreakId">the integer id for the desired LimitBreak; it can be found in the LimitBreak IdList</param>
+        /// <param name="limitBreakId">the integer id for the desired LimitBreak; it can be found in the LimitBreak IdList</param>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LimitBreak&gt;</see>
         /// </response>
@@ -101,11 +101,11 @@ namespace FFRKApi.Api.FFRK.Controllers
         [Route(RouteConstants.LimitBreaksRoute_Id)]
         [SwaggerOperation(nameof(GetLimitBreaksById))]
         [ProducesResponseType(typeof(IEnumerable<D.LimitBreak>), (int)HttpStatusCode.OK)]
-        public IActionResult GetLimitBreaksById(int LimitBreakId)
+        public IActionResult GetLimitBreaksById(int limitBreakId)
         {
             _logger.LogInformation($"Controller Method invoked: {nameof(GetLimitBreaksById)}");
 
-            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksById(LimitBreakId);
+            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksById(limitBreakId);
 
             IEnumerable<D.LimitBreak> result = _mapper.Map<IEnumerable<D.LimitBreak>>(model);
 
@@ -121,7 +121,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "PHY" in the TypeList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/Abilities/LimitBreaks/AbilityType/6";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/AbilityType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/AbilityType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -149,9 +149,9 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all LimitBreaks with "Dragon" in their name.
         /// - You can straight away call this api: api/v1.0/LimitBreaks/Name/dragon";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Name/dragon (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Name/dragon (or use Try It Out to see data in this page)
         /// </remarks>
-        /// <param name="LimitBreakName">the string that must be a part of a LimitBreak's name in order for them to be returned by this api call.</param>
+        /// <param name="limitBreakName">the string that must be a part of a LimitBreak's name in order for them to be returned by this api call.</param>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LimitBreak&gt;</see>
         /// </response>
@@ -159,11 +159,11 @@ namespace FFRKApi.Api.FFRK.Controllers
         [Route(RouteConstants.LimitBreaksRoute_Name)]
         [SwaggerOperation(nameof(GetLimitBreaksByName))]
         [ProducesResponseType(typeof(IEnumerable<D.LimitBreak>), (int)HttpStatusCode.OK)]
-        public IActionResult GetLimitBreaksByName(string LimitBreakName)
+        public IActionResult GetLimitBreaksByName(string limitBreakName)
         {
             _logger.LogInformation($"Controller Method invoked: {nameof(GetLimitBreaksByName)}");
 
-            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByName(LimitBreakName);
+            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByName(limitBreakName);
 
             IEnumerable<D.LimitBreak> result = _mapper.Map<IEnumerable<D.LimitBreak>>(model);
 
@@ -179,7 +179,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -209,7 +209,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -237,7 +237,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all LimitBreaks that have a multiplier greater than or equal to 6.
         /// - You can straight away call this api: api/v1.0/LimitBreaks/Multiplier/6";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Multiplier/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Multiplier/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="multiplier">the integer multiplier value</param>
         /// <response code="200">
@@ -267,7 +267,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/Element/5;
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired ElementType; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -295,7 +295,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all LimitBreaks with "Haste" in their Effect text.
         /// - You can straight away call this api: api/v1.0/LimitBreaks/Effect/haste";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Effect/haste (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Effect/haste (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a LimitBreak's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -320,14 +320,14 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Gets all LimitBreaks that are of the specified LimitBreak Tier
         /// </summary>
         /// <remarks>
-        /// Sample Use Case - You want to find out data about all LimitBreaks are in the Chain Soul Break Tier
+        /// Sample Use Case - You want to find out data about all LimitBreaks are in the Overflow Limit Break Tier
         /// - You first call /api/v1.0/TypeLists/LimitBreakTierType to get the proper TypeList
-        /// - Then you look up the integer Key associated with the Value of "CSB" in the IdList (the id is 9 in this case)
-        /// - Finally you call this api: api/v1.0/LimitBreaks/Tier/9
+        /// - Then you look up the integer Key associated with the Value of "OLB" in the IdList (the id is 1 in this case)
+        /// - Finally you call this api: api/v1.0/LimitBreaks/Tier/1
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Tier/9 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Tier/1 (or use Try It Out to see data in this page)
         /// </remarks>
-        /// <param name="realmType">the integer id for the desired LimitBreakTier; it can be found in the LimitBreakTier TypeList</param>
+        /// <param name="limitBreakTier">the integer id for the desired LimitBreakTier; it can be found in the LimitBreakTier TypeList</param>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LimitBreak&gt;</see>
         /// </response>
@@ -335,11 +335,11 @@ namespace FFRKApi.Api.FFRK.Controllers
         [Route(RouteConstants.LimitBreaksRoute_Tier)]
         [SwaggerOperation(nameof(GetLimitBreaksByTier))]
         [ProducesResponseType(typeof(IEnumerable<D.LimitBreak>), (int)HttpStatusCode.OK)]
-        public IActionResult GetLimitBreaksByTier(int LimitBreakTier)
+        public IActionResult GetLimitBreaksByTier(int limitBreakTier)
         {
             _logger.LogInformation($"Controller Method invoked: {nameof(GetLimitBreaksByTier)}");
 
-            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByTier(LimitBreakTier);
+            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByTier(limitBreakTier);
 
             IEnumerable<D.LimitBreak> result = _mapper.Map<IEnumerable<D.LimitBreak>>(model);
 
@@ -347,15 +347,15 @@ namespace FFRKApi.Api.FFRK.Controllers
         }
 
         /// <summary>
-        /// Gets all LimitBreaks whose MasteryBonus text contains the provided string (case is ignored)
+        /// Gets all LimitBreaks whose LimitBreakBonusText text contains the provided string (case is ignored)
         /// </summary>
         /// <remarks>
-        /// Sample Use Case - You want to find out data about all LimitBreaks with "MND" as the stat improved upon mastery.
-        /// - You can straight away call this api: api/v1.0/LimitBreaks/MasteryBonus/mnd";
+        /// Sample Use Case - You want to find out data about all LimitBreaks with "Earth" limit break bonus.
+        /// - You can straight away call this api: api/v1.0/LimitBreaks/LimitBreakBonus/earth";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/MasteryBonus/mnd (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/LimitBreakBonus/earth (or use Try It Out to see data in this page)
         /// </remarks>
-        /// <param name="masteryBonusText">the string that must be a part of a LimitBreak's MasteryBonus text in order for it to be returned by this api call.</param>
+        /// <param name="limitBreakBonusText">the string that must be a part of a LimitBreak's MasteryBonus text in order for it to be returned by this api call.</param>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LimitBreak&gt;</see>
         /// </response>
@@ -363,11 +363,11 @@ namespace FFRKApi.Api.FFRK.Controllers
         [Route(RouteConstants.LimitBreaksRoute_MasteryBonus)]
         [SwaggerOperation(nameof(GetLimitBreaksByLimitBreakBonus))]
         [ProducesResponseType(typeof(IEnumerable<D.LimitBreak>), (int)HttpStatusCode.OK)]
-        public IActionResult GetLimitBreaksByLimitBreakBonus(string masteryBonusText)
+        public IActionResult GetLimitBreaksByLimitBreakBonus(string limitBreakBonusText)
         {
             _logger.LogInformation($"Controller Method invoked: {nameof(GetLimitBreaksByLimitBreakBonus)}");
 
-            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByLimitBreakBonus(masteryBonusText);
+            IEnumerable<LimitBreak> model = _LimitBreaksLogic.GetLimitBreaksByLimitBreakBonus(limitBreakBonusText);
 
             IEnumerable<D.LimitBreak> result = _mapper.Map<IEnumerable<D.LimitBreak>>(model);
 
@@ -383,7 +383,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Astra" in the IdList (the id is 86 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/Status/86
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Status/86 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Status/86 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="statusId">the integer id for the desired Status; it can be found in the Status IdList</param>
         /// <response code="200">
@@ -418,7 +418,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Elements (only the first in the list is considered)
         /// - Effect (comparison is Contains, not exact match)
         /// - LimitBreakTier
-        /// - MasteryBonus (comparison is Contains, not exact match)
+        /// - LimitBreakBonus (comparison is Contains, not exact match)
         /// - Statuses (only the first in the list is considered)
         /// - AutoTargetType
         /// - CastTime (value specified or lower)
@@ -434,7 +434,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the LimitBreak specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/LimitBreaks [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LimitBreaks/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the Relic object that contains the search criteria</param>
         /// <response code="200">

@@ -57,7 +57,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of Others, it is faster to get each individual Other instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;Other&gt;</see>
@@ -86,7 +86,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Stock Raid" in the IdList (the id is 46 in this case)
         /// - Finally you call this api: api/v1.0/Others/46
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/46 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/46 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="otherId">the integer id for the desired Other insatnce; it can be found in the Other IdList</param>
         /// <response code="200">
@@ -114,7 +114,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Other instances with "Barrage" in their name.
         /// - You can straight away call this api: api/v1.0/Others/Name/barrage";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/Name/barrage (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/Name/barrage (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="otherName">the string that must be a part of a Dungeon's name in order for them to be returned by this api call.</param>
         /// <response code="200">
@@ -142,7 +142,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Other instances with "Machinist" in their Source field.
         /// - You can straight away call this api: api/v1.0/Others/SourceName/machinist";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/SourceName/machinist (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/SourceName/machinist (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="sourceName">the string that must be a part of a Other's Source in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -172,7 +172,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "BLK" in the TypeList (the id is 2 in this case)
         /// - Finally you call this api: api/v1.0/Others/AbilityType/2
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/AbilityType/2 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/AbilityType/2 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="abilityType">the integer id for the desired AbilityType; it can be found in the AbilityType TypeList</param>
         /// <response code="200">
@@ -202,7 +202,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Summoning" in the TypeList (the id is 19 in this case)
         /// - Finally you call this api: api/v1.0/Others/School/19
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/School/19 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/School/19 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="schoolType">the integer id for the desired School; it can be found in the SchoolType TypeList</param>
         /// <response code="200">
@@ -232,7 +232,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Fire" in the TypeList (the id is 5 in this case)
         /// - Finally you call this api: api/v1.0/Others/School/19
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/Element/5 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/Element/5 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="elementType">the integer id for the desired Element; it can be found in the ElementType TypeList</param>
         /// <response code="200">
@@ -260,7 +260,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Other instances with "Blink" in their Effect field.
         /// - You can straight away call this api: api/v1.0/Others/Effect/blink";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/Others/Effect/blink (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Others/Effect/blink (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a Other's Effect in order for it to be returned by this api call.</param>
         /// <response code="200">

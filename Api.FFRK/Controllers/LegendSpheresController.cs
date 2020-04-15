@@ -56,7 +56,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of LegendSphere, it is faster to get each individual ability instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;LegendSphere&gt;</see>
@@ -85,7 +85,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value that contains "Bartz" and "DEF +20" in the IdList (the id is 235 in this case)
         /// - Finally you call this api: api/v1.0/LegendSpheres/235
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/235 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/235 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="legendSphereId">the integer id for the desired LegendSphere; it can be found in the LegendSphere IdList</param>
         /// <response code="200">
@@ -115,7 +115,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/LegendSpheres/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -145,7 +145,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/LegendSpheres/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -173,7 +173,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all LegendSpheres with "Silence Imm" as their benefit.
         /// - You can straight away call this api: api/v1.0/LegendMaterias/LegendSpheres/silence%20imm";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/Benefit/silence%20imm (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/Benefit/silence%20imm (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="benefit">the string that must be a part of a LegendSphere's Benefit text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -204,7 +204,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// The order in which you specify the more types does not matter.
         /// - You can straight away call this api: api/v1.0/LegendSpheres/RequiredMotes/bravery/dexterity";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/RequiredMotes/bravery/dexterity (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/RequiredMotes/bravery/dexterity (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="moteType1">the (complete) string value of the first type of mote the LegendSphere uses</param>
         /// <param name="moteType2">the (complete) string value of the second type of mote the LegendSphere uses</param>
@@ -243,7 +243,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the LegendSphere specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/LegendSpheres/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/LegendSpheres/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LegendSpheres/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the LegendSphere object that contains the search criteria</param>
         /// <response code="200">

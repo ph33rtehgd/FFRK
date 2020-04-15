@@ -57,7 +57,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Use Case - If you only need to access details for a small number of RecordMateria, it is faster to get each individual RecordMateria instance using a separate api call, but if 
         /// you need to access most of them, it will be faster to call this api to get them all at once and store them locally so you can use them repeatedly.
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias (or use Try It Out to see data in this page)
         /// </remarks>
         /// <response code="200">
         ///     <see>IEnumerable&lt;RecordMateria&gt;</see>
@@ -86,7 +86,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Values of "Scholar's Boon" and "Tyro" in the IdList (the id is 4 in this case)
         /// - Finally you call this api: api/v1.0/RecordMaterias/4
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/4 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/4 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="legendMateriaId">the integer id for the desired RecordMateria; it can be found in the RecordMateria IdList</param>
         /// <response code="200">
@@ -114,7 +114,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all Dungeons with "blade" in their name.
         /// - You can straight away call this api: api/v1.0/RecordMaterias/Name/blade";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/Name/blade (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/Name/blade (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="recordMateriaName">the string that must be a part of a RecordMateria's name in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -144,7 +144,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "VI" in the IdList (the id is 6 in this case)
         /// - Finally you call this api: api/v1.0/RecordMaterias/RealmType/6
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/RealmType/6 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/RealmType/6 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="realmType">the integer id for the desired Realm; it can be found in the RealmType TypeList</param>
         /// <response code="200">
@@ -174,7 +174,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - Then you look up the integer Key associated with the Value of "Bartz" in the IdList (the id is 73 in this case)
         /// - Finally you call this api: api/v1.0/RecordMaterias/Character/73
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/Character/73 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/Character/73 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="characterId">the integer id for the desired Character; it can be found in the Character IdList</param>
         /// <response code="200">
@@ -202,7 +202,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all RecordMaterias with "dualcast" as their effect.
         /// - You can straight away call this api: api/v1.0/RecordMaterias/Effect/dualcast";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/Effect/dualcast (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/Effect/dualcast (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="effectText">the string that must be a part of a RecordMateria's Effect text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -230,7 +230,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// Sample Use Case - You want to find out data about all RecordMaterias with "level 99" in their Unlock Criteria.
         /// - You can straight away call this api: api/v1.0/RecordMaterias/Unlock/level%2099";
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/Unlock/level%2099 (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/Unlock/level%2099 (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="unlockText">the string that must be a part of a RecordMateria's Unlock Criteria text in order for it to be returned by this api call.</param>
         /// <response code="200">
@@ -272,7 +272,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// - You attach the RecordMateria specification object as the body of a Post request.
         /// - Finally you call this api: api/v1.0/RecordMaterias/Search [POST];
         /// <br /> 
-        /// Example - http://ffrkapi.azurewebsites.net/api/v1.0/RecordMaterias/Search (or use Try It Out to see data in this page)
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/RecordMaterias/Search (or use Try It Out to see data in this page)
         /// </remarks>
         /// <param name="searchPrototype">the RecordMateria object that contains the search criteria</param>
         /// <response code="200">
