@@ -12,6 +12,7 @@
     "BannerStoragePath": "Banner"
   },
   "LoggingOptions": {
+    "ApiLogFilePath": "..\\logs\\ffrk-api-{Date}.log",
     "LogFilePath": "FFRKApi.ETL.Log-{Date}.txt",
     "ApplicationInsightsKey": "Placeholder",
     "AppComponentName": "Api.FFRK"

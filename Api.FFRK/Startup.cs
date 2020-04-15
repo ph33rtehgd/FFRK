@@ -185,14 +185,14 @@ namespace FFRKApi.Api.FFRK
         {
             string appInsightsKey = Configuration["LoggingOptions:ApplicationInsightsKey"];
             string appComponentName = Configuration["LoggingOptions:AppComponentName"];
-
+            string apiLogPath = Configuration["LoggingOptions:ApiLogFilePath"];
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
                 .Enrich.FromLogContext()
                 .Enrich.WithProperty(LoggingOptionsAppComponentNameKey, appComponentName)
-                //.WriteTo.RollingFile(rollingFileLogPath).MinimumLevel.Information()
+                .WriteTo.RollingFile(apiLogPath).MinimumLevel.Information()
                 .WriteTo.ApplicationInsightsEvents(appInsightsKey).MinimumLevel.Information()
-                .WriteTo.Console(theme: SystemConsoleTheme.Literate).MinimumLevel.Information()
+                //.WriteTo.Console(theme: SystemConsoleTheme.Literate).MinimumLevel.Information()
                 .WriteTo.Debug().MinimumLevel.Debug()
                 .CreateLogger();
 
