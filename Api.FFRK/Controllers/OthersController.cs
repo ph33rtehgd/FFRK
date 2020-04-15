@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using D = FFRKApi.Dto.Api;
 using FFRKApi.Model.EnlirTransform;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FFRKApi.Api.FFRK.Controllers
 {

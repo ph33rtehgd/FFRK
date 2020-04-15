@@ -10,6 +10,7 @@ using FFRKApi.Model.Api.CharacterRating;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using D = FFRKApi.Dto.Api.CharacterRating;
 

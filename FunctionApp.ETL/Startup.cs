@@ -70,6 +70,7 @@ namespace FunctionApp.ETL
             services.Configure<AbilityImporterOptions>(_configuration.GetSection(nameof(AbilityImporterOptions)));
             services.Configure<SoulBreakImporterOptions>(_configuration.GetSection(nameof(SoulBreakImporterOptions)));
             services.Configure<CommandImporterOptions>(_configuration.GetSection(nameof(CommandImporterOptions)));
+            services.Configure<SynchroCommandImporterOptions>(_configuration.GetSection(nameof(SynchroCommandImporterOptions)));
             services.Configure<BraveActionImporterOptions>(_configuration.GetSection(nameof(BraveActionImporterOptions)));
             services.Configure<OtherImporterOptions>(_configuration.GetSection(nameof(OtherImporterOptions)));
             services.Configure<StatusImporterOptions>(_configuration.GetSection(nameof(StatusImporterOptions)));
@@ -107,6 +108,7 @@ namespace FunctionApp.ETL
             services.AddScoped<IRowImporter<AbilityRow>, AbilityImporter>();
             services.AddScoped<IRowImporter<SoulBreakRow>, SoulBreakImporter>();
             services.AddScoped<IRowImporter<CommandRow>, CommandImporter>();
+            services.AddScoped<IRowImporter<SynchroCommandRow>, SynchroCommandImporter>();
             services.AddScoped<IRowImporter<BraveActionRow>, BraveActionImporter>();
             services.AddScoped<IRowImporter<OtherRow>, OtherImporter>();
             services.AddScoped<IRowImporter<StatusRow>, StatusImporter>();
@@ -127,6 +129,7 @@ namespace FunctionApp.ETL
             services.AddScoped<IRowTransformer<StatusRow, Status>, StatusTransformer>();
             services.AddScoped<IRowTransformer<OtherRow, Other>, OtherTransformer>();
             services.AddScoped<IRowTransformer<CommandRow, Command>, CommandTransformer>();
+            services.AddScoped<IRowTransformer<SynchroCommandRow, Command>, SynchroCommandTransformer>();
             services.AddScoped<IRowTransformer<BraveActionRow, BraveAction>, BraveActionTransformer>();            
             services.AddScoped<IRowTransformer<SoulBreakRow, SoulBreak>, SoulBreakTransformer>();
             services.AddScoped<IRowTransformer<RelicRow, Relic>, RelicTransformer>();

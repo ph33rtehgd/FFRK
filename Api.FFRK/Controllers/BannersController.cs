@@ -11,6 +11,7 @@ using FFRKApi.Logic.Api.Banners;
 using FFRKApi.Model.Api.Banners;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using D = FFRKApi.Dto.Api.Banners;
 

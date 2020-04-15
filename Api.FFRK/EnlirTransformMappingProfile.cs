@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using FFRKApi.Model.Api;
 using FFRKApi.Model.EnlirTransform;
-using Microsoft.AspNetCore.Hosting.Internal;
 using D = FFRKApi.Dto.Api;
 
 namespace FFRKApi.Api.FFRK
@@ -36,6 +35,9 @@ namespace FFRKApi.Api.FFRK
 
             CreateMap<Command, D.Command>();
             CreateMap<D.Command, Command>();
+
+            CreateMap<SynchroCommand, D.SynchroCommand>();
+            CreateMap<D.SynchroCommand, SynchroCommand>();
 
             CreateMap<BraveAction, D.BraveAction>();
             CreateMap<D.BraveAction, BraveAction>();

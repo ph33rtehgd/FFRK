@@ -456,7 +456,7 @@ namespace FFRKApi.Logic.Validation.Enlir
     public class TypeListDifferences
     {
         public string IdListName { get; set; }
-        public bool IsIdListDifferentFromSource => ValuesMissingFromIdList.Any() || ValuesSuperfluousInIdList.Any();
+        public bool IsIdListDifferentFromSource => ValuesMissingFromIdList.Any(); //|| ValuesSuperfluousInIdList.Any();
         public IList<string> ValuesMissingFromIdList { get; set; }
         public IList<string> ValuesSuperfluousInIdList { get; set; }
         public IList<KeyValuePair<int, string>> SuggestedIdListContents { get; set; }

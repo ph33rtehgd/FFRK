@@ -45,7 +45,7 @@ namespace FFRKApi.Api.FFRK
 
             builder.AddJsonFile("hosting.json", optional: true);
 
-            if (env.IsEnvironment(LocalEnvironmentKey))
+            if (env.EnvironmentName.Equals(LocalEnvironmentKey))
             {
                 builder.AddJsonFile($"{ConfigFileName}.{LocalEnvironmentKey}.{ConfigFileExtension}", optional: true);
             }

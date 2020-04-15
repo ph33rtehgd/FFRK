@@ -108,7 +108,7 @@ namespace Manager.EnlirETL
                 stopwatchImport.Stop();
 
                 //cheat data setup for testing - comment out when doing full run for real
-                //string importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2018-12-21_09-48-46.json";
+                //string importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2020-04-15_01-39-34.json";
                 //string transformStoragePath = @"D:\Docs\Personal\FFRKLinqQuery\TransformResults-Latest.json";
                 //string formattedDateString = "2018-12-21_09-48-46";
                 //string importContents = File.ReadAllText(importStoragePath);
@@ -174,6 +174,7 @@ namespace Manager.EnlirETL
             _servicesCollection.Configure<AbilityImporterOptions>(_configuration.GetSection(nameof(AbilityImporterOptions)));
             _servicesCollection.Configure<SoulBreakImporterOptions>(_configuration.GetSection(nameof(SoulBreakImporterOptions)));
             _servicesCollection.Configure<CommandImporterOptions>(_configuration.GetSection(nameof(CommandImporterOptions)));
+            _servicesCollection.Configure<SynchroCommandImporterOptions>(_configuration.GetSection(nameof(SynchroCommandImporterOptions)));
             _servicesCollection.Configure<BraveActionImporterOptions>(_configuration.GetSection(nameof(BraveActionImporterOptions)));
             _servicesCollection.Configure<OtherImporterOptions>(_configuration.GetSection(nameof(OtherImporterOptions)));
             _servicesCollection.Configure<StatusImporterOptions>(_configuration.GetSection(nameof(StatusImporterOptions)));
@@ -207,6 +208,7 @@ namespace Manager.EnlirETL
             _servicesCollection.AddScoped<IRowImporter<AbilityRow>, AbilityImporter>();
             _servicesCollection.AddScoped<IRowImporter<SoulBreakRow>, SoulBreakImporter>();
             _servicesCollection.AddScoped<IRowImporter<CommandRow>, CommandImporter>();
+            _servicesCollection.AddScoped<IRowImporter<SynchroCommandRow>, SynchroCommandImporter>();
             _servicesCollection.AddScoped<IRowImporter<BraveActionRow>, BraveActionImporter>();
             _servicesCollection.AddScoped<IRowImporter<OtherRow>, OtherImporter>();
             _servicesCollection.AddScoped<IRowImporter<StatusRow>, StatusImporter>();
@@ -227,6 +229,7 @@ namespace Manager.EnlirETL
             _servicesCollection.AddScoped<IRowTransformer<StatusRow, Status>, StatusTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<OtherRow, Other>, OtherTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<CommandRow, Command>, CommandTransformer>();
+            _servicesCollection.AddScoped<IRowTransformer<SynchroCommandRow, SynchroCommand>, SynchroCommandTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<BraveActionRow, BraveAction>, BraveActionTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<SoulBreakRow, SoulBreak>, SoulBreakTransformer>();
             _servicesCollection.AddScoped<IRowTransformer<RelicRow, Relic>, RelicTransformer>();

@@ -82,7 +82,9 @@ namespace FFRKApi.Model.EnlirTransform.IdLists
                                                                  new KeyValuePair<int, string>(71, "Wind"),
                                                                  new KeyValuePair<int, string>(72, "Greater Wind"),
                                                                  new KeyValuePair<int, string>(73, "Major Wind"),
-                                                                 new KeyValuePair<int, string>(74, "Wind Crystal")
+                                                                 new KeyValuePair<int, string>(74, "Wind Crystal"),
+                                                                 new KeyValuePair<int, string>(75, "Record Board"),
+                                                                 new KeyValuePair<int, string>(76, "-")
                                                              };
 
         public IList<KeyValuePair<int, string>> TypeList => _typeList;

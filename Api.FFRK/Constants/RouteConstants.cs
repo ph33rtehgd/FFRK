@@ -80,6 +80,15 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string CommandsRoute_Element = "Element/{elementType}";
         public const string CommandsRoute_Search = "Search"; //POST
 
+        //SynchroCommands Routes
+        public const string SynchroCommandsRoute_All = "";
+        public const string SynchroCommandsRoute_Id = "{commandId}";
+        public const string SynchroCommandsRoute_AbilityType = "AbilityType/{abilityType}";
+        public const string SynchroCommandsRoute_Character = "Character/{characterId}";
+        public const string SynchroCommandsRoute_School = "School/{schoolType}";
+        public const string SynchroCommandsRoute_Element = "Element/{elementType}";
+        public const string SynchroCommandsRoute_Search = "Search"; //POST
+
         //BraveActions Routes
         public const string BraveActionsRoute_All = "";
         public const string BraveActionsRoute_Id = "{braveActionId}";

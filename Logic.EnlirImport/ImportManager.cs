@@ -26,6 +26,7 @@ namespace FFRKApi.Logic.EnlirImport
         private readonly IRowImporter<AbilityRow> _abilityImporter;
         private readonly IRowImporter<SoulBreakRow> _soulBreakImporter;
         private readonly IRowImporter<CommandRow> _commandImporter;
+        private readonly IRowImporter<SynchroCommandRow> _synchroCommandImporter;
         private readonly IRowImporter<BraveActionRow> _braveActionImporter;
         private readonly IRowImporter<OtherRow> _otherImporter;
         private readonly IRowImporter<StatusRow> _statusImporter;
@@ -45,7 +46,8 @@ namespace FFRKApi.Logic.EnlirImport
         public ImportManager(IRowImporter<CharacterRow> characterImporter, IRowImporter<RecordSphereRow> recordSphereImporter,
             IRowImporter<LegendSphereRow> legendSphereImporter, IRowImporter<RecordMateriaRow> recordMateriaImporter,
             IRowImporter<LegendMateriaRow> legendMateriaImporter, IRowImporter<AbilityRow> abilityImporter,
-            IRowImporter<SoulBreakRow> soulBreakImporter, IRowImporter<CommandRow> commandImporter, IRowImporter<BraveActionRow> braveActionImporter,
+            IRowImporter<SoulBreakRow> soulBreakImporter, IRowImporter<CommandRow> commandImporter, IRowImporter<SynchroCommandRow> synchroCommandImporter, 
+            IRowImporter<BraveActionRow> braveActionImporter,
             IRowImporter<OtherRow> otherImporter, IRowImporter<StatusRow> statusImporter,
             IRowImporter<RelicRow> relicImporter, IRowImporter<MagiciteRow> magiciteImporter,
             IRowImporter<MagiciteSkillRow> magiciteSkillImporter,
@@ -61,6 +63,7 @@ namespace FFRKApi.Logic.EnlirImport
             _abilityImporter = abilityImporter;
             _soulBreakImporter = soulBreakImporter;
             _commandImporter = commandImporter;
+            _synchroCommandImporter = synchroCommandImporter;
             _braveActionImporter = braveActionImporter;
             _otherImporter = otherImporter;
             _statusImporter = statusImporter;
@@ -108,6 +111,9 @@ namespace FFRKApi.Logic.EnlirImport
 
                 resultsContainer.CommandRows = _commandImporter.Import();
                 _logger.LogInformation("finished loading {RowCount} CommandRows", resultsContainer.CommandRows?.Count());
+
+                resultsContainer.SynchroCommandRows = _synchroCommandImporter.Import();
+                _logger.LogInformation("finished loading {RowCount} SynchroCommandRows", resultsContainer.SynchroCommandRows?.Count());
 
                 resultsContainer.BraveActionRows = _braveActionImporter.Import();
                 _logger.LogInformation("finished loading {RowCount} BraveActionRows", resultsContainer.BraveActionRows?.Count());

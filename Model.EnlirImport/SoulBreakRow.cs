@@ -11,23 +11,25 @@ namespace FFRKApi.Model.EnlirImport
         Character = 1,
         ImagePath = 2,
         SoulBreakName = 3,
-        Type = 4,
-        Target = 5,
-        Formula = 6,
-        Multiplier = 7,
-        Element = 8,
-        Time = 9,
-        Effects = 10,
-        Counter = 11,
-        AutoTarget = 12,
-        Points = 13,
-        Tier = 14,
+        Tier = 4,
+        Type = 5,
+        Target = 6,
+        Formula = 7,
+        Multiplier = 8,
+        Element = 9,
+        Time = 10,
+        Effects = 11,
+        Counter = 12,
+        AutoTarget = 13,
+        Points = 14,
         Master = 15,
-        Relic = 16,
-        JapaneseName = 17,
-        ID = 18,
-        IsInGlobal = 19,
-        Checked = 20
+        Honing = 16,
+        Relic = 17,
+        JapaneseName = 18,
+        ID = 19,
+        Anima = 20,
+        IsInGlobal = 21,
+        Checked = 22
 
     }
 
@@ -50,9 +52,11 @@ namespace FFRKApi.Model.EnlirImport
         public string Points { get; set; }
         public string Tier { get; set; }
         public string Master { get; set; }
+        public string Honing { get; set; }
         public string Relic { get; set; }
         public string JapaneseName { get; set; }
         public string ID { get; set; }
+        public string Anima { get; set; }
         public string IsInGlobal { get; set; }
         public string Checked { get; set; }
     }

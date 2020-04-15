@@ -9,7 +9,7 @@ using FFRKApi.Logic.Api;
 using FFRKApi.Model.Api;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.Annotations;
 using D = FFRKApi.Dto.Api;
 
 namespace FFRKApi.Api.FFRK.Controllers

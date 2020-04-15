@@ -10,6 +10,8 @@ using System.Text;
 using FFRK.Api.Infra.Options.EnlirETL;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Google.Apis.Requests;
+using System.Threading;
 
 namespace FFRKApi.SheetsApiHelper
 {
@@ -49,9 +51,18 @@ namespace FFRKApi.SheetsApiHelper
         {
             SpreadsheetsResource.ValuesResource.GetRequest request = GetSheetsRequest(spreadsheetId, worksheetName, rangeExpression, valueRenderOption);
 
-            ValueRange response = request.Execute();
-
-
+            ValueRange response = null;
+            try
+            {
+                response = request.Execute();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("Exception while fetching sheets data. Could be a rate limit...trying again in 30 seconds.", e);
+                Thread.Sleep(30000);
+                response = GetSheetsData(spreadsheetId, worksheetName, rangeExpression, valueRenderOption);
+            }
+            
             _logger.LogInformation("SheetsService instance retrieved {RowCount} rows of data for request for {SpreadsheetId}, {WorksheetName}, {RangeExpression}", 
                 response.Values.Count, spreadsheetId, worksheetName, rangeExpression);
 

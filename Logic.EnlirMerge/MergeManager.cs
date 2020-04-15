@@ -92,6 +92,8 @@ namespace FFRKApi.Logic.EnlirMerge
          * Relics -> CharacterId *
          * Command -> CharacterId *
          * Soul Break -> CharacterId *
+         * Synchro Command -> Character Id
+         * Synchro Command -> Soul Break Id
          * 
          * Relic -> LegenedMateriaId *
          * 
@@ -233,6 +235,16 @@ namespace FFRKApi.Logic.EnlirMerge
                 }
             }
 
+            foreach (SynchroCommand command in transformResults.SynchroCommands)
+            {
+                if (!String.IsNullOrWhiteSpace(command.CharacterName))
+                {
+                    command.CharacterId = transformResults.Characters.Where(c => c.CharacterName == command.CharacterName).Select(c => c.Id).SingleOrDefault();
+
+                    _logger.LogDebug("wired up CharacterId {CharacterId} to SynchroCommand {Command}", command.CharacterId, command.Description);
+                }
+            }
+
             foreach (BraveAction braveAction in transformResults.BraveActions)
             {
                 if (!String.IsNullOrWhiteSpace(braveAction.CharacterName))
@@ -324,6 +336,14 @@ namespace FFRKApi.Logic.EnlirMerge
                 && sb.CharacterName.Trim() == command.CharacterName.Trim()).Select(e => e.Id).SingleOrDefault();
 
                 _logger.LogDebug("wired up SoulBreakId {SoulBreakId} to Command {Command}", command.SourceSoulBreakId, command.Description);
+            }
+
+            foreach (SynchroCommand command in transformResults.SynchroCommands)
+            {
+                command.SourceSoulBreakId = transformResults.SoulBreaks.Where(sb => sb.SoulBreakName == command.SourceSoulBreakName
+                && sb.CharacterName.Trim() == command.CharacterName.Trim()).Select(e => e.Id).SingleOrDefault();
+
+                _logger.LogDebug("wired up SoulBreakId {SoulBreakId} to SynchroCommand {Command}", command.SourceSoulBreakId, command.Description);
             }
 
             foreach (BraveAction braveAction in transformResults.BraveActions)
@@ -458,6 +478,16 @@ namespace FFRKApi.Logic.EnlirMerge
                     continue;
                 }
 
+                SynchroCommand relatedSynchroCommand = transformResults.SynchroCommands.SingleOrDefault(c => c.CommandName.Trim() == other.SourceName.Trim());
+                if (relatedCommand != null) //this is the match
+                {
+                    other.SourceId = relatedCommand.Id;
+                    other.SourceType = nameof(SynchroCommand);
+
+                    _logger.LogDebug("wired up SourceId {SourceId} and SourceType {SourceType} to Other {Other}", other.SourceId, other.SourceType, other.Description);
+                    continue;
+                }
+
                 IList<LegendMateria> relatedLegendMateria = transformResults.LegendMaterias.Where(l => l.LegendMateriaName == other.SourceName).ToList();
                 if (relatedLegendMateria != null && relatedLegendMateria.Count == 1) //this is the match
                 {
@@ -534,6 +564,16 @@ namespace FFRKApi.Logic.EnlirMerge
                 soulBreak.Commands = transformResults.Commands.Where(c => c.SourceSoulBreakName == soulBreak.SoulBreakName).ToList();
 
                 _logger.LogDebug("wired up {CommandsCount} Commands to SoulBreak {SoulBreak}", soulBreak.Commands.Count(), soulBreak.Description);
+            }
+        }
+
+        private void WireUpSynchroCommands(TransformResultsContainer transformResults)
+        {
+            foreach (SoulBreak soulBreak in transformResults.SoulBreaks)
+            {
+                soulBreak.SynchroCommands = transformResults.SynchroCommands.Where(c => c.SourceSoulBreakName == soulBreak.SoulBreakName).ToList();
+
+                _logger.LogDebug("wired up {CommandsCount} Synchro Commands to SoulBreak {SoulBreak}", soulBreak.SynchroCommands.Count(), soulBreak.Description);
             }
         }
 
@@ -670,6 +710,9 @@ namespace FFRKApi.Logic.EnlirMerge
             WireUpCommands(transformResults);
             _logger.LogInformation("Finished wiring up Commands");
 
+            WireUpSynchroCommands(transformResults);
+            _logger.LogInformation("Finished wiring up Synchro Commands");
+
             WireUpBraveActions(transformResults);
             _logger.LogInformation("Finished wiring up BraveActions");
 
@@ -696,6 +739,7 @@ namespace FFRKApi.Logic.EnlirMerge
             mergeResultsContainer.Abilities = transformResults.Abilities;
             mergeResultsContainer.Characters = transformResults.Characters;
             mergeResultsContainer.Commands = transformResults.Commands;
+            mergeResultsContainer.SynchroCommands = transformResults.SynchroCommands;
             mergeResultsContainer.BraveActions = transformResults.BraveActions;
             //mergeResultsContainer.Dungeons = transformResults.Dungeons;
             mergeResultsContainer.Events = transformResults.Events;
@@ -739,6 +783,7 @@ namespace FFRKApi.Logic.EnlirMerge
             mergeResultsContainer.StatusIdList = mergeResultsContainer.Statuses.Select(i => new KeyValuePair<int, string>(i.Id, i.CommonName)).ToList();
             mergeResultsContainer.OtherIdList = mergeResultsContainer.Others.Select(i => new KeyValuePair<int, string>(i.Id, i.Name)).ToList();
             mergeResultsContainer.CommandIdList = mergeResultsContainer.Commands.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
+            mergeResultsContainer.SynchroCommandIdList = mergeResultsContainer.SynchroCommands.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
             mergeResultsContainer.BraveActionIdList = mergeResultsContainer.BraveActions.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();
             mergeResultsContainer.SoulBreakIdList = mergeResultsContainer.SoulBreaks.Select(i => new KeyValuePair<int, string>(i.Id, i.SoulBreakName)).ToList();
             mergeResultsContainer.RelicIdList = mergeResultsContainer.Relics.Select(i => new KeyValuePair<int, string>(i.Id, i.Description)).ToList();

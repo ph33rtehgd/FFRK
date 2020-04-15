@@ -43,7 +43,7 @@ namespace FFRKApi.Logic.EnlirTransform
             model.MindModifier = _percentConverter.ConvertFromStringToDouble(row.MindModifier.TrimStart(PlusMinusCharArray));
             model.ExclusiveStatuses = ConvertCommaSeparatedStringToList(row.ExclusiveStatus);
             model.CodedName = row.CodedName;
-            model.Notes = row.Notes.Replace(DashCharacter, String.Empty);
+            model.Notes = row.Notes != null ? row.Notes.Replace(DashCharacter, String.Empty) : "";
 
             _logger.LogDebug("Converted StatusRow to Status: {Id} - {Description}", model.Id, model.Description);
 

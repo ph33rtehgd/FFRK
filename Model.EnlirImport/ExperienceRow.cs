@@ -26,7 +26,9 @@ namespace FFRKApi.Model.EnlirImport
         Inheritance4 = 17,
         NextLevelInheritance4 = 18,
         Inheritance5 = 19,
-        NextLevelInheritance5 = 20
+        NextLevelInheritance5 = 20,
+        Inheritance6 = 21,
+        NextLevelInheritance6 = 22
     }
 
     public class ExperienceRow
@@ -52,5 +54,7 @@ namespace FFRKApi.Model.EnlirImport
         public string NextLevelInheritance4 { get; set; }
         public string Inheritance5 { get; set; }
         public string NextLevelInheritance5 { get; set; }
+        public string Inheritance6 { get; set; }
+        public string NextLevelInheritance6 { get; set; }
     }
 }

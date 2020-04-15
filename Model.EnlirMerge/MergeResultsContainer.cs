@@ -26,6 +26,8 @@ namespace FFRKApi.Model.EnlirMerge
         public IEnumerable<Command> Commands { get; set; }
         public IEnumerable<BraveAction> BraveActions { get; set; }
 
+        public IEnumerable<SynchroCommand> SynchroCommands { get; set; }
+
         public IEnumerable<SoulBreak> SoulBreaks { get; set; }
 
         public IEnumerable<Relic> Relics { get; set; }
@@ -69,6 +71,7 @@ namespace FFRKApi.Model.EnlirMerge
         public IList<KeyValuePair<int, string>> StatusIdList { get; set; }
         public IList<KeyValuePair<int, string>> OtherIdList { get; set; }
         public IList<KeyValuePair<int, string>> CommandIdList { get; set; }
+        public IList<KeyValuePair<int, string>> SynchroCommandIdList { get; set; }
         public IList<KeyValuePair<int, string>> BraveActionIdList { get; set; }
         public IList<KeyValuePair<int, string>> SoulBreakIdList { get; set; }
         public IList<KeyValuePair<int, string>> RelicIdList { get; set; }

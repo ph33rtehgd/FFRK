@@ -35,7 +35,8 @@ namespace FFRKApi.Model.EnlirTransform.IdLists
                                                                     //new KeyValuePair<int, string>(23, "DoC:VII"),
                                                                     //new KeyValuePair<int, string>(24, "X-2"),
                                                                     //new KeyValuePair<int, string>(25, "XIII-2"),
-                                                                    new KeyValuePair<int, string>(21, "-")
+                                                                    new KeyValuePair<int, string>(21, "-"),
+                                                                    new KeyValuePair<int, string>(22, "DB Only")
 
 
                                                              };

@@ -9,6 +9,7 @@ using FFRKApi.Logic.Api;
 using FFRKApi.Model.EnlirTransform;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using D = FFRKApi.Dto.Api;
 
@@ -24,7 +25,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetAbilitiesByElement(int elementType);
         IActionResult GetAbilitiesBySearch(D.Ability searchPrototype);
     }
-
+    
     [Produces(RouteConstants.ContentType_ApplicationJson)]
     [Route(RouteConstants.BaseRoute)]
     public class AbilitiesController : Controller, IAbilitiesController

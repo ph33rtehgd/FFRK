@@ -9,6 +9,7 @@ using FFRKApi.Logic.Api;
 using FFRKApi.Model.EnlirTransform;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using D = FFRKApi.Dto.Api;
 

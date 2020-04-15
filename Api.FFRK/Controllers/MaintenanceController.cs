@@ -4,6 +4,7 @@ using FFRKApi.Logic.Api;
 using FFRKApi.Model.EnlirMerge;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace FFRKApi.Api.FFRK.Controllers

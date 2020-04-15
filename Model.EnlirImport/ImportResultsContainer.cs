@@ -23,6 +23,8 @@ namespace FFRKApi.Model.EnlirImport
 
         public IEnumerable<CommandRow> CommandRows { get; set; }
 
+        public IEnumerable<SynchroCommandRow> SynchroCommandRows { get; set; }
+
         public IEnumerable<BraveActionRow> BraveActionRows { get; set; }
 
         public IEnumerable<OtherRow> OtherRows { get; set; }

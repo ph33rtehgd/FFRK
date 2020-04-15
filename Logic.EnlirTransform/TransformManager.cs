@@ -46,6 +46,7 @@ namespace FFRKApi.Logic.EnlirTransform
         private readonly IRowTransformer<StatusRow, Status> _statusRowTransformer;
         private readonly IRowTransformer<OtherRow, Other> _otherRowTransformer;
         private readonly IRowTransformer<CommandRow, Command> _commandRowTransformer;
+        private readonly IRowTransformer<SynchroCommandRow, SynchroCommand> _synchroCommandRowTransformer;
         private readonly IRowTransformer<BraveActionRow, BraveAction> _braveActionRowTransformer;
         private readonly IRowTransformer<SoulBreakRow, SoulBreak> _soulBreakRowTransformer;
         private readonly IRowTransformer<RelicRow, Relic> _relicRowTransformer;
@@ -67,7 +68,8 @@ namespace FFRKApi.Logic.EnlirTransform
             IRowTransformer<ExperienceRow, Experience> experienceRowTransformer,
             IRowTransformer<MagiciteSkillRow, MagiciteSkill> magiciteSkillRowTransformer, IRowTransformer<MagiciteRow, Magicite> magiciteRowTransformer,
             IRowTransformer<StatusRow, Status> statusRowTransformer, IRowTransformer<OtherRow, Other> otherRowTransformer,
-            IRowTransformer<CommandRow, Command> commandRowTransformer, IRowTransformer<BraveActionRow, BraveAction> braveActionRowTransformer, 
+            IRowTransformer<CommandRow, Command> commandRowTransformer, IRowTransformer<SynchroCommandRow, SynchroCommand> synchroCommandRowTransformer,
+            IRowTransformer<BraveActionRow, BraveAction> braveActionRowTransformer, 
             IRowTransformer<SoulBreakRow, SoulBreak> soulBreakRowTransformer,
             IRowTransformer<RelicRow, Relic> relicRowTransformer, IRowTransformer<AbilityRow, Ability> abilityRowTransformer,
             IRowTransformer<LegendMateriaRow, LegendMateria> legendMateriaRowTransformer, IRowTransformer<RecordMateriaRow, RecordMateria> recordMateriaRowTransformer,
@@ -84,6 +86,7 @@ namespace FFRKApi.Logic.EnlirTransform
             _statusRowTransformer = statusRowTransformer;
             _otherRowTransformer = otherRowTransformer;
             _commandRowTransformer = commandRowTransformer;
+            _synchroCommandRowTransformer = synchroCommandRowTransformer;
             _braveActionRowTransformer = braveActionRowTransformer;
             _soulBreakRowTransformer = soulBreakRowTransformer;
             _relicRowTransformer = relicRowTransformer;
@@ -190,6 +193,9 @@ namespace FFRKApi.Logic.EnlirTransform
 
             transformResultsContainer.Commands = _commandRowTransformer.Transform(importResults.CommandRows);
             _logger.LogInformation("finished transforming CommandRows to Commands");
+
+            transformResultsContainer.SynchroCommands = _synchroCommandRowTransformer.Transform(importResults.SynchroCommandRows);
+            _logger.LogInformation("finished transforming SynchroCommandRows to SynchroCommands");
 
             transformResultsContainer.BraveActions = _braveActionRowTransformer.Transform(importResults.BraveActionRows);
             _logger.LogInformation("finished transforming BraveActionRows to BraveActions");
