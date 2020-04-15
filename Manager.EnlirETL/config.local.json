@@ -33,7 +33,7 @@
   "CharacterImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "Characters",
-    "RangeExpression": "A2:DC",
+    "RangeExpression": "A2:DD",
     "ValueRenderOption": 2
   },
   "RecordSphereImporterOptions": {
@@ -57,7 +57,7 @@
   "LegendMateriaImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "'Legend Materia'",
-    "RangeExpression": "A2:K",
+    "RangeExpression": "A2:L",
     "ValueRenderOption": 2
   },
   "AbilityImporterOptions": {
@@ -69,13 +69,19 @@
   "SoulBreakImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "'Soul Breaks'",
-    "RangeExpression": "A2:U",
+    "RangeExpression": "A2:W",
     "ValueRenderOption": 2
   },
   "CommandImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "Burst",
     "RangeExpression": "A2:S",
+    "ValueRenderOption": 2
+  },
+  "SynchroCommandImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Synchro",
+    "RangeExpression": "A2:V",
     "ValueRenderOption": 2
   },
   "BraveActionImporterOptions": {
@@ -129,7 +135,7 @@
   "ExperienceImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "Experience",
-    "RangeExpression": "A2:U",
+    "RangeExpression": "A2:Y",
     "ValueRenderOption": 0
   }
 
