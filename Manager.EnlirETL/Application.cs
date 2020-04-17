@@ -96,7 +96,7 @@ namespace Manager.EnlirETL
                 string failureInfo;
 
                 //Before we take the overhead of downloading all the import data, check that the data has the right overall structure
-                bool useLocalImport = true;
+                bool useLocalImport = false;
                 ImportResultsContainer importResultsContainer = null;
                 string importStoragePath = null;
                 if (!useLocalImport)
