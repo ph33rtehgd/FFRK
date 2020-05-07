@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using FFRKApi.Data.Storage;
 using FFRKApi.Model.EnlirMerge;
 using FFRKApi.Model.EnlirTransform;
@@ -39,6 +40,11 @@ namespace FFRKApi.Logic.EnlirMerge
         #region Class Variables
 
         private ITransformStorageProvider _transformStorageProvider;
+        private readonly string _statusPattern = string.Format("{0}({1}){2}", Regex.Escape("["), ".+?", Regex.Escape("]"));
+        private readonly string _buffPercentagePattern = string.Format("{0}{1}", "[-" + Regex.Escape("+") + "]", "[0-9]*%");
+        private readonly string _percentagePattern = string.Format("{0}", "[0-9]*%");
+        private readonly string _multiStatusScalingPattern = string.Format("{0}", "(([0-9]+(%)*/)){2,}([0-9%])+");
+        private readonly List<string> _missingStatuses = new List<string>();
         private readonly ILogger<MergeManager> _logger;
         #endregion
 
@@ -639,22 +645,25 @@ namespace FFRKApi.Logic.EnlirMerge
         {
             foreach (SoulBreak soulBreak in transformResults.SoulBreaks)
             {
-                IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && soulBreak.Effects.Contains(s.CommonName)).ToList();
+                //IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && soulBreak.Effects.Contains(s.CommonName)).ToList();
 
-                IList<Status> processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
+                //IList<Status> processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
 
-                soulBreak.Statuses = processedMatches;
+                //soulBreak.Statuses = processedMatches;
+                soulBreak.Statuses = ProcessStatusesForEffects(transformResults, soulBreak.Effects);
 
                 _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", soulBreak.Statuses.Count(), soulBreak.Description);
             }
 
             foreach (LimitBreak limitBreak in transformResults.LimitBreaks)
             {
-                IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && limitBreak.Effects.Contains(s.CommonName)).ToList();
+                //IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && limitBreak.Effects.Contains(s.CommonName)).ToList();
 
-                IList<Status> processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
+                //IList<Status> processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
 
-                limitBreak.Statuses = processedMatches;
+                //limitBreak.Statuses = processedMatches;
+
+                limitBreak.Statuses = ProcessStatusesForEffects(transformResults, limitBreak.Effects);
 
                 _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", limitBreak.Statuses.Count(), limitBreak.Description);
             }
@@ -809,6 +818,11 @@ namespace FFRKApi.Logic.EnlirMerge
 
             _logger.LogInformation("Finished MergeAll Operation");
 
+            _logger.LogInformation("Missing status found: " + _missingStatuses.Count);
+            foreach(string missing in _missingStatuses) {
+                _logger.LogWarning("No matching statuses found for status string: " + missing);
+            }   
+
             //copy data from transformResults container to merge results container
 
             mergeResultsContainer.Abilities = transformResults.Abilities;
@@ -884,12 +898,92 @@ namespace FFRKApi.Logic.EnlirMerge
             return name;
         }
 
-
-        private IList<Status> ProcessStatusesForSoulBreak(IList<Status> potentialMatches)
+        private IList<Status> ProcessStatusesForEffects(TransformResultsContainer transformResults, string effects)
         {
-            IList<Status> processedMatches = new List<Status>();
 
-            processedMatches = ProcessStatusesToRemoveSuperfluousQuickCasts(potentialMatches);
+            //ATK, DEF, MAG, RES and MND +10%/20%/30%/40%/50% (25s)
+            IList<Status> processedMatches = new List<Status>();
+            MatchCollection matches = Regex.Matches(effects, _statusPattern);
+            foreach (Match m in matches)
+            {
+                bool matchFound = false;
+                var statusName = m.Groups[1].Value;
+
+                IList<Status> potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && statusName.Equals(s.CommonName)).ToList();
+                if (potentialMatches.Count > 0)
+                {
+                    processedMatches.Add(potentialMatches.FirstOrDefault());
+                    matchFound = true;
+                }
+
+                // Some statuses are abbreviated with /'s
+                if (!matchFound && statusName.Contains("/"))
+                {
+                    MatchCollection multiStatusMatches = Regex.Matches(statusName, _multiStatusScalingPattern);
+                    if (multiStatusMatches.Count == 1)
+                    {
+                        var multiStatusValue = multiStatusMatches[0].Value;
+                        var multiIndex = statusName.IndexOf(multiStatusValue);
+                        var beginningPiece = statusName.Substring(0, multiIndex);
+                        var endingPiece = statusName.Substring(multiIndex + multiStatusValue.Length);
+
+                        var pieces = multiStatusValue.Split("/");
+                        foreach(string piece in pieces)
+                        {
+                            var resolvedStatusName = beginningPiece + piece + endingPiece;
+                            potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && resolvedStatusName.Equals(s.CommonName)).ToList();
+                            if (potentialMatches.Count > 0)
+                            {
+                                processedMatches.Add(potentialMatches.FirstOrDefault());
+                                matchFound = true;
+                            }
+                        }
+                    }
+                }
+
+                // If this is an DEF and RES +200% it needs to map to DEF and RES +X%, won't be found above.
+                if (!matchFound)
+                {
+                    MatchCollection buffDebuffMatches = Regex.Matches(statusName, _buffPercentagePattern);
+                    foreach (Match m2 in buffDebuffMatches)
+                    {
+                        var buffPercentage = m2.Value;
+                        var updatedStatusName = statusName.Replace(buffPercentage, "+X%");
+                        potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && updatedStatusName.Equals(s.CommonName)).ToList();
+                        if (potentialMatches.Count > 0)
+                        {
+                            processedMatches.Add(potentialMatches.FirstOrDefault());
+                            matchFound = true;
+                            break;
+                        }
+                    }
+                }
+                
+                // If this is an Imperil Fire 20% it needs to map to Imperil Fire X%, won't be found above.
+                if (!matchFound)
+                {
+                    MatchCollection percentageMatches = Regex.Matches(statusName, _percentagePattern);
+                    foreach (Match m2 in percentageMatches)
+                    {
+                        var buffPercentage = m2.Value;
+                        var updatedStatusName = statusName.Replace(buffPercentage, "X%");
+                        potentialMatches = transformResults.Statuses.Where(s => !String.IsNullOrWhiteSpace(s.CommonName) && updatedStatusName.Equals(s.CommonName)).ToList();
+                        if (potentialMatches.Count > 0)
+                        {
+                            processedMatches.Add(potentialMatches.FirstOrDefault());
+                            matchFound = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (matchFound)
+                {
+                    continue;
+                }
+
+                _missingStatuses.Add(statusName);
+            }
 
             return processedMatches;
         }
