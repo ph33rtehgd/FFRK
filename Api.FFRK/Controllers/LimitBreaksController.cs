@@ -322,7 +322,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// <remarks>
         /// Sample Use Case - You want to find out data about all LimitBreaks are in the Overflow Limit Break Tier
         /// - You first call /api/v1.0/TypeLists/LimitBreakTierType to get the proper TypeList
-        /// - Then you look up the integer Key associated with the Value of "OLB" in the IdList (the id is 1 in this case)
+        /// - Then you look up the integer Key associated with the Value of "LBO" in the IdList (the id is 1 in this case)
         /// - Finally you call this api: api/v1.0/LimitBreaks/Tier/1
         /// <br /> 
         /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/LimitBreaks/Tier/1 (or use Try It Out to see data in this page)

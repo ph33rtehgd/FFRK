@@ -533,7 +533,7 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// </summary>
         /// <remarks>
         /// The values in this TypeList are drawn from those found in the columns in Enlir called "Tier" when in the context of a Limit Break
-        /// Some example values are OLB, GLB, etc. 
+        /// Some example values are LBO, LBG, etc. 
         /// <br /> 
         /// Enlir Mapping - sheet: "Limit Breaks", column "Tier"
         /// <br /> 

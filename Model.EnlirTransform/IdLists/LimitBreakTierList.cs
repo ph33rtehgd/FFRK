@@ -9,8 +9,8 @@ namespace FFRKApi.Model.EnlirTransform.IdLists
         private IList<KeyValuePair<int, string>> _typeList = new List<KeyValuePair<int, string>>()
                                                              {
                                                                     new KeyValuePair<int, string>(0, "Unknown"),
-                                                                    new KeyValuePair<int, string>(3, "GLB"),
-                                                                    new KeyValuePair<int, string>(4, "OLB")
+                                                                    new KeyValuePair<int, string>(3, "LBG"),
+                                                                    new KeyValuePair<int, string>(4, "LBO")
                                                              };
 
         public IList<KeyValuePair<int, string>> TypeList => _typeList;
