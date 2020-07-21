@@ -24,6 +24,7 @@ namespace FFRKApi.Logic.EnlirImport
             importedRow.Character = ResolveColumnContents(columnCount, LegendMateriaColumn.Character, row);
             importedRow.ImagePath = ResolveColumnContents(columnCount, LegendMateriaColumn.ImagePath, row);
             importedRow.LegendMateriaName = ResolveColumnContents(columnCount, LegendMateriaColumn.LegendMateriaName, row);
+            importedRow.Tier = ResolveColumnContents(columnCount, LegendMateriaColumn.Tier, row);
             importedRow.Effect = ResolveColumnContents(columnCount, LegendMateriaColumn.Effect, row);
             importedRow.Master = ResolveColumnContents(columnCount, LegendMateriaColumn.Master, row);
             importedRow.Relic = ResolveColumnContents(columnCount, LegendMateriaColumn.Relic, row);

@@ -10,14 +10,15 @@ namespace FFRKApi.Model.EnlirImport
         Character = 1,
         ImagePath = 2,
         LegendMateriaName = 3,
-        Effect = 4,
-        Master = 5,
-        Relic = 6,
-        JapaneseName = 7,
-        ID = 8,
-        Anima = 9,
-        IsInGlobal = 10,
-        Checked = 11
+        Tier = 4,
+        Effect = 5,
+        Master = 6,
+        Relic = 7,
+        JapaneseName = 8,
+        ID = 9,
+        Anima = 10,
+        IsInGlobal = 11,
+        Checked = 12
     }
 
 
@@ -29,6 +30,7 @@ namespace FFRKApi.Model.EnlirImport
         public string Character { get; set; }
         public string ImagePath { get; set; }
         public string LegendMateriaName { get; set; }
+        public string Tier { get; set; }
         public string Effect { get; set; }
         public string Master { get; set; }
         public string Relic { get; set; }

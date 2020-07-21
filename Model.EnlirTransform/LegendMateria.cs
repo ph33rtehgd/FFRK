@@ -17,7 +17,7 @@ namespace FFRKApi.Model.EnlirTransform
         public string CharacterName { get; set; }
         public int CharacterId { get; set; } //filled in during merge phase
         public string ImagePath { get; set; }
-
+        public string Tier { get; set; }
         public string Effect { get; set; }
         public string MasteryBonus { get; set; }
         public string RelicName { get; set; }

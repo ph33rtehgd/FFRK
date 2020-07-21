@@ -36,6 +36,7 @@ namespace FFRKApi.Logic.EnlirTransform
 
             model.LegendMateriaName = row.LegendMateriaName;
             model.JapaneseName = row.JapaneseName ?? String.Empty;
+            model.Tier = row.Tier ?? String.Empty;
 
             model.ImagePath = row.ImagePath;
             model.Realm = _realmConverter.ConvertFromNameToId(row.Realm);
