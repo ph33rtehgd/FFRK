@@ -19,8 +19,11 @@ namespace FFRKApi.Logic.Api
         IEnumerable<Relic> GetRelicsByRealm(int realmType);
         IEnumerable<Relic> GetRelicsByCharacter(int characterId);
         IEnumerable<Relic> GetRelicsBySoulBreak(int soulBreakId);
+        IEnumerable<Relic> GetRelicsByCdbSoulBreak(string soulBreakId);
         IEnumerable<Relic> GetRelicsByLimitBreak(int limitBreakId);
+        IEnumerable<Relic> GetRelicsByCdbLimitBreak(string limitBreakId);
         IEnumerable<Relic> GetRelicsByLegendMateria(int legendMateriaId);
+        IEnumerable<Relic> GetRelicsByCdbLegendMateria(string legendMateriaId);
         IEnumerable<Relic> GetRelicsByRelicType(int relicType);
         IEnumerable<Relic> GetRelicsByEffect(string effectText);
         IEnumerable<Relic> GetRelicsByRarity(int rarity);
@@ -169,6 +172,23 @@ namespace FFRKApi.Logic.Api
             return results;
         }
 
+        public IEnumerable<Relic> GetRelicsByCdbSoulBreak(string soulBreakId)
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByCdbSoulBreak)}");
+
+            string cacheKey = $"{nameof(GetRelicsByCdbSoulBreak)}:{soulBreakId}";
+            IEnumerable<Relic> results = _cacheProvider.ObjectGet<IList<Relic>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => (r.SoulBreak != null && r.SoulBreak.EnlirId == soulBreakId));
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
         public IEnumerable<Relic> GetRelicsByLimitBreak(int limitBreakId)
         {
             _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByLimitBreak)}");
@@ -186,6 +206,23 @@ namespace FFRKApi.Logic.Api
             return results;
         }
 
+        public IEnumerable<Relic> GetRelicsByCdbLimitBreak(string limitBreakId)
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByCdbLimitBreak)}");
+
+            string cacheKey = $"{nameof(GetRelicsByCdbLimitBreak)}:{limitBreakId}";
+            IEnumerable<Relic> results = _cacheProvider.ObjectGet<IList<Relic>>(cacheKey);
+
+            if (results == null)
+            {
+                results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => (r.LimitBreak != null && r.LimitBreak.EnlirId == limitBreakId));
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
         public IEnumerable<Relic> GetRelicsByLegendMateria(int legendMateriaId)
         {
             _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByLegendMateria)}");
@@ -196,6 +233,27 @@ namespace FFRKApi.Logic.Api
             if (results == null)
             {
                 results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => r.LegendMateriaId == legendMateriaId);
+
+                _cacheProvider.ObjectSet(cacheKey, results);
+            }
+
+            return results;
+        }
+
+        public IEnumerable<Relic> GetRelicsByCdbLegendMateria(string legendMateriaId)
+        {
+            _logger.LogInformation($"Logic Method invoked: {nameof(GetRelicsByCdbLegendMateria)}");
+
+            string cacheKey = $"{nameof(GetRelicsByCdbLegendMateria)}:{legendMateriaId}";
+            IEnumerable<Relic> results = _cacheProvider.ObjectGet<IList<Relic>>(cacheKey);
+
+            if (results == null)
+            {
+                var lms = _enlirRepository.GetMergeResultsContainer().LegendMaterias.Where(l => l.EnlirId == legendMateriaId);
+                if (lms != null)
+                {
+                    results = _enlirRepository.GetMergeResultsContainer().Relics.Where(r => r.Id == lms.First<LegendMateria>().RelicId);
+                }
 
                 _cacheProvider.ObjectSet(cacheKey, results);
             }

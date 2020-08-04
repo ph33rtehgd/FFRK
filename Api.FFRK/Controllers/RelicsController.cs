@@ -26,8 +26,11 @@ namespace FFRKApi.Api.FFRK.Controllers
         IActionResult GetRelicsByRealm(int realmType);
         IActionResult GetRelicsByCharacter(int characterId);
         IActionResult GetRelicsBySoulBreak(int soulBreakId);
+        IActionResult GetRelicsByCdbSoulBreak(string soulBreakId);
         IActionResult GetRelicsByLimitBreak(int limitBreakId);
+        IActionResult GetRelicsByCdbLimitBreak(string limitBreakId);
         IActionResult GetRelicsByLegendMateria(int legendMateriaId);
+        IActionResult GetRelicsByCdbLegendMateria(string legendMateriaId);
         IActionResult GetRelicsByRelicType(int relicType);
         IActionResult GetRelicsByEffect(string effectText);
         IActionResult GetRelicsByRarity(int rarity);
@@ -267,6 +270,34 @@ namespace FFRKApi.Api.FFRK.Controllers
         }
 
         /// <summary>
+        /// Gets the Relic instance associated with the specified Soul Break (using CDB/DeNA ID)
+        /// </summary>
+        /// <remarks>
+        /// Sample Use Case - You want to find out data about the Relic that is associated with the "Sentinel's Grimoire" Soul Break
+        /// - Call this api: api/v1.0/Relics/CdbSoulBreak/20140004
+        /// <br /> 
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/CdbSoulBreak/20140004 (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <param name="soulBreakId">the string id for the desired Soul Break that a Relic are associated with</param>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;Relic&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.RelicsRoute_CdbSoulBreak)]
+        [SwaggerOperation(nameof(GetRelicsByCdbSoulBreak))]
+        [ProducesResponseType(typeof(IEnumerable<D.Relic>), (int)HttpStatusCode.OK)]
+        public IActionResult GetRelicsByCdbSoulBreak(string soulBreakId)
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsByCdbSoulBreak)}");
+
+            IEnumerable<Relic> model = _relicsLogic.GetRelicsByCdbSoulBreak(soulBreakId);
+
+            IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
         /// Gets the Relic instance associated with the specified Limit Break
         /// </summary>
         /// <remarks>
@@ -283,13 +314,41 @@ namespace FFRKApi.Api.FFRK.Controllers
         /// </response>
         [HttpGet]
         [Route(RouteConstants.RelicsRoute_LimitBreak)]
-        [SwaggerOperation(nameof(GetRelicsBySoulBreak))]
+        [SwaggerOperation(nameof(GetRelicsByLimitBreak))]
         [ProducesResponseType(typeof(IEnumerable<D.Relic>), (int)HttpStatusCode.OK)]
         public IActionResult GetRelicsByLimitBreak(int limitBreakId)
         {
-            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsBySoulBreak)}");
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsByLimitBreak)}");
 
             IEnumerable<Relic> model = _relicsLogic.GetRelicsByLimitBreak(limitBreakId);
+
+            IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
+        /// Gets the Relic instance associated with the specified Limit Break (using CDB/DeNA ID)
+        /// </summary>
+        /// <remarks>
+        /// Sample Use Case - You want to find out data about the Relic that is associated with the "Cherished Rose" Limit Break
+        /// - Call this api: api/v1.0/Relics/CdbLimitBreak/20270017
+        /// <br /> 
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/CdbLimitBreak/20270017 (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <param name="limitBreakId">the string id for the desired Limit Break that a Relic are associated with</param>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;Relic&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.RelicsRoute_CdbLimitBreak)]
+        [SwaggerOperation(nameof(GetRelicsByCdbLimitBreak))]
+        [ProducesResponseType(typeof(IEnumerable<D.Relic>), (int)HttpStatusCode.OK)]
+        public IActionResult GetRelicsByCdbLimitBreak(string limitBreakId)
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsByCdbLimitBreak)}");
+
+            IEnumerable<Relic> model = _relicsLogic.GetRelicsByCdbLimitBreak(limitBreakId);
 
             IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
 
@@ -320,6 +379,34 @@ namespace FFRKApi.Api.FFRK.Controllers
             _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsByLegendMateria)}");
 
             IEnumerable<Relic> model = _relicsLogic.GetRelicsByLegendMateria(legendMateriaId);
+
+            IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
+
+            return new ObjectResult(result);
+        }
+
+        /// <summary>
+        /// Gets the Relic instance associated with the specified LegendMateria (using CDB/DeNA ID)
+        /// </summary>
+        /// <remarks>
+        /// Sample Use Case - You want to find out data about the Relic that is associated with the "Gifted Bard" LegendMateria
+        /// - Call this api: api/v1.0/Relics/LegendMateria/201040702
+        /// <br /> 
+        /// Example - https://www.ffrktoolkit.com/ffrk-api/api/v1.0/Relics/CdbLegendMateria/201040702 (or use Try It Out to see data in this page)
+        /// </remarks>
+        /// <param name="legendMateriaId">the string id for the desired LegendMateria that a Relic is associated with</param>
+        /// <response code="200">
+        ///     <see>IEnumerable&lt;Relic&gt;</see>
+        /// </response>
+        [HttpGet]
+        [Route(RouteConstants.RelicsRoute_CdbLegendMateria)]
+        [SwaggerOperation(nameof(GetRelicsByCdbLegendMateria))]
+        [ProducesResponseType(typeof(IEnumerable<D.Relic>), (int)HttpStatusCode.OK)]
+        public IActionResult GetRelicsByCdbLegendMateria(string legendMateriaId)
+        {
+            _logger.LogInformation($"Controller Method invoked: {nameof(GetRelicsByCdbLegendMateria)}");
+
+            IEnumerable<Relic> model = _relicsLogic.GetRelicsByCdbLegendMateria(legendMateriaId);
 
             IEnumerable<D.Relic> result = _mapper.Map<IEnumerable<D.Relic>>(model);
 

@@ -231,8 +231,11 @@ namespace FFRKApi.Api.FFRK.Constants
         public const string RelicsRoute_RealmType = "RealmType/{realmType}";
         public const string RelicsRoute_Character = "Character/{characterId}";
         public const string RelicsRoute_SoulBreak = "SoulBreak/{soulBreakId}";
+        public const string RelicsRoute_CdbSoulBreak = "CdbSoulBreak/{soulBreakId}";
         public const string RelicsRoute_LimitBreak = "LimitBreak/{limitBreakId}";
+        public const string RelicsRoute_CdbLimitBreak = "CdbLimitBreak/{limitBreakId}";
         public const string RelicsRoute_LegendMateria = "LegendMateria/{legendMateriaId}";
+        public const string RelicsRoute_CdbLegendMateria = "CdbLegendMateria/{legendMateriaId}";
         public const string RelicsRoute_RelicType = "RelicType/{relicType}";
         public const string RelicsRoute_Effect = "Effect/{effectText}";
         public const string RelicsRoute_Rarity = "Rarity/{rarity}";
