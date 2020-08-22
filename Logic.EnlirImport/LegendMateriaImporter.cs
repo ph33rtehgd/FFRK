@@ -31,6 +31,7 @@ namespace FFRKApi.Logic.EnlirImport
             importedRow.JapaneseName = ResolveColumnContents(columnCount, LegendMateriaColumn.JapaneseName, row);
             importedRow.ID = ResolveColumnContents(columnCount, LegendMateriaColumn.ID, row);
             importedRow.IsInGlobal = ResolveColumnContents(columnCount, LegendMateriaColumn.IsInGlobal, row);
+            importedRow.Anima = ResolveColumnContents(columnCount, LegendMateriaColumn.Anima, row);
             importedRow.Checked = ResolveColumnContents(columnCount, LegendMateriaColumn.Checked, row);
 
             return importedRow;

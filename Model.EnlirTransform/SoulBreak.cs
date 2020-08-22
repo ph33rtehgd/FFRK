@@ -46,7 +46,7 @@ namespace FFRKApi.Model.EnlirTransform
         public int SoulBreakTier { get; set; }
         public string MasteryBonus { get; set; }
 
-
+        public string Anima { get; set; }
 
         public string EnlirId { get; set; }
 

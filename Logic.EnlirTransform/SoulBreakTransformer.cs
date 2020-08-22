@@ -83,6 +83,7 @@ namespace FFRKApi.Logic.EnlirTransform
             model.SoulBreakPointsRequired = _intConverter.ConvertFromStringToInt(row.Points);
             model.SoulBreakTier = _soulBreakTierConverter.ConvertFromNameToId(row.Tier);
             model.MasteryBonus = row.Master;
+            model.Anima = row.Anima;
 
             model.EnlirId = row.ID;
 
