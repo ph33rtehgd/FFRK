@@ -79,61 +79,68 @@ namespace Model.EnlirImport
 
         //Record Board
         IntroducingEventRecordBoard = 57,
+        HPRecordBoard = 58,
+        ATKRecordBoard = 59,
+        DEFRecordBoard = 60,
+        MAGRecordBoard = 61,
+        RESRecordBoard = 62,
+        MNDRecordBoard = 63,
+        SPDRecordBoard = 64,
 
         //Equipment Access
-        DaggerAccess = 58,
-        SwordAccess = 59,
-        KatanaAccess = 60,
-        AxeAccess = 61,
-        HammerAccess = 62,
-        SpearAccess = 63,
-        FistAccess = 64,
-        RodAccess = 65,
-        StaffAccess = 66,
-        BowAccess = 67,
-        InstrumentAccess = 68,
-        WhipAccess = 69,
-        ThrownAccess = 70,
-        GunAccess = 71,
-        BookAccess = 72,
-        BlitzballAccess = 73,
-        HairpinAccess = 74,
-        GunarmAccess = 75,
-        GamblingGearAccess = 76,
-        DollAccess = 77,
-        KeybladeAccess = 78,
-        ShieldAccess = 79,
-        HatAccess = 80,
-        HelmAccess = 81,
-        LightArmorAccess = 82,
-        HeavyArmorAccess = 83,
-        RobeAccess = 84,
-        BracerAccess = 85,
-        AccessoryAccess = 86,
+        DaggerAccess = 65,
+        SwordAccess = 66,
+        KatanaAccess = 67,
+        AxeAccess = 68,
+        HammerAccess = 69,
+        SpearAccess = 70,
+        FistAccess = 71,
+        RodAccess = 72,
+        StaffAccess = 73,
+        BowAccess = 74,
+        InstrumentAccess = 75,
+        WhipAccess = 76,
+        ThrownAccess = 77,
+        GunAccess = 78,
+        BookAccess = 79,
+        BlitzballAccess = 80,
+        HairpinAccess = 81,
+        GunarmAccess = 82,
+        GamblingGearAccess = 83,
+        DollAccess = 84,
+        KeybladeAccess = 85,
+        ShieldAccess = 86,
+        HatAccess = 87,
+        HelmAccess = 88,
+        LightArmorAccess = 89,
+        HeavyArmorAccess = 90,
+        RobeAccess = 91,
+        BracerAccess = 92,
+        AccessoryAccess = 93,
 
         //School Access
-        BlackMagicAccess = 87,
-        WhiteMagicAccess = 88,
-        CombatAccess = 89,
-        SupportAccess = 90,
-        CelerityAccess = 91,
-        SummoningAccess = 92,
-        SpellbladeAccess = 93,
-        DragoonAccess = 94,
-        MonkAccess = 95,
-        ThiefAccess = 96,
-        KnightAccess = 97,
-        SamuraiAccess = 98,
-        NinjaAccess = 99,
-        BardAccess = 100,
-        DancerAccess = 101,
-        MachinistAccess = 102,
-        DarknessAccess = 103,
-        SharpshooterAccess = 104,
-        WitchAccess = 105,
-        HeavyAccess = 106,
+        BlackMagicAccess = 94,
+        WhiteMagicAccess = 96,
+        CombatAccess = 96,
+        SupportAccess = 97,
+        CelerityAccess = 98,
+        SummoningAccess = 99,
+        SpellbladeAccess = 100,
+        DragoonAccess = 101,
+        MonkAccess = 102,
+        ThiefAccess = 103,
+        KnightAccess = 104,
+        SamuraiAccess = 105,
+        NinjaAccess = 106,
+        BardAccess = 107,
+        DancerAccess = 108,
+        MachinistAccess = 109,
+        DarknessAccess = 110,
+        SharpshooterAccess = 111,
+        WitchAccess = 112,
+        HeavyAccess = 113,
 
-        ID = 107
+        ID = 114
 
     }
 
@@ -267,6 +274,13 @@ namespace Model.EnlirImport
 
         //Record Board
         public string IntroducingEventRecordBoard { get; set; }
+        public string HPRecordBoard { get; set; }
+        public string ATKRecordBoard { get; set; }
+        public string DEFRecordBoard { get; set; }
+        public string MAGRecordBoard { get; set; }
+        public string RESRecordBoard { get; set; }
+        public string MNDRecordBoard { get; set; }
+        public string SPDRecordBoard { get; set; }
 
         public string ID { get; set; }
     }

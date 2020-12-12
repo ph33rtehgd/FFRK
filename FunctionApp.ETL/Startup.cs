@@ -130,7 +130,7 @@ namespace FunctionApp.ETL
             services.AddScoped<IRowTransformer<StatusRow, Status>, StatusTransformer>();
             services.AddScoped<IRowTransformer<OtherRow, Other>, OtherTransformer>();
             services.AddScoped<IRowTransformer<CommandRow, Command>, CommandTransformer>();
-            services.AddScoped<IRowTransformer<SynchroCommandRow, Command>, SynchroCommandTransformer>();
+            services.AddScoped<IRowTransformer<SynchroCommandRow, SynchroCommand>, SynchroCommandTransformer>();
             services.AddScoped<IRowTransformer<BraveActionRow, BraveAction>, BraveActionTransformer>();            
             services.AddScoped<IRowTransformer<SoulBreakRow, SoulBreak>, SoulBreakTransformer>();
             services.AddScoped<IRowTransformer<RelicRow, Relic>, RelicTransformer>();

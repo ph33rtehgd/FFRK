@@ -147,7 +147,18 @@ namespace FFRKApi.Logic.EnlirImport
             importedRow.MNDLegendSphere = ResolveColumnContents(columnCount, CharacterColumn.MNDLegendSphere, row);
             importedRow.SPDLegendSphere = ResolveColumnContents(columnCount, CharacterColumn.SPDLegendSphere, row);
 
+            //Record Board
+            importedRow.IntroducingEventRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.IntroducingEventRecordBoard, row);
+            importedRow.HPRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.HPRecordBoard, row);
+            importedRow.ATKRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.ATKRecordBoard, row);
+            importedRow.DEFRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.DEFRecordBoard, row);
+            importedRow.MAGRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.MAGRecordBoard, row);
+            importedRow.RESRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.RESRecordBoard, row);
+            importedRow.MNDRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.MNDRecordBoard, row);
+            importedRow.SPDRecordBoard = ResolveColumnContents(columnCount, CharacterColumn.SPDRecordBoard, row);
+
             importedRow.ID = ResolveColumnContents(columnCount, CharacterColumn.ID, row);
+            
             return importedRow;
         }
     }

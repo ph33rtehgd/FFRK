@@ -27,9 +27,11 @@ namespace FunctionApp.ETL
             try
             {
                 //user might pass a specific date in that they want formatted. The query string param will be "date" if so
-                string date = req.GetQueryNameValuePairs()
-                    .FirstOrDefault(q => string.Compare(q.Key, "date", true) == 0)
-                    .Value;
+                var qs = req.RequestUri.ParseQueryString();
+                string date = qs.Get("date");
+                //string date = req.GetQueryNameValuePairs()
+                //    .FirstOrDefault(q => string.Compare(q.Key, "date", true) == 0)
+                //    .Value;
 
                 DateTime resolvedDate = DateTime.UtcNow;
 

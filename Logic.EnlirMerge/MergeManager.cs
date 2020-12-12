@@ -326,6 +326,9 @@ namespace FFRKApi.Logic.EnlirMerge
 
                 character.StatIncrementsForLegendSpheres.IntroducingEventId = transformResults.Events.Where(e => e.EventName == character.StatIncrementsForLegendSpheres.IntroducingEvent).Select(e => e.Id).SingleOrDefault();
                 _logger.LogDebug("wired up EventId {EventId} to StatIncrementsForLegendSpheres for Character {Character}", character.StatIncrementsForLegendSpheres.IntroducingEventId, character.Description);
+
+                character.StatIncrementsForRecordBoard.IntroducingEventId = transformResults.Events.Where(e => e.EventName == character.StatIncrementsForRecordBoard.IntroducingEvent).Select(e => e.Id).SingleOrDefault();
+                _logger.LogDebug("wired up EventId {EventId} to StatIncrementsForRecordBoard for Character {Character}", character.StatIncrementsForRecordBoard.IntroducingEventId, character.Description);
             }
 
             foreach (Ability ability in transformResults.Abilities)
@@ -404,7 +407,7 @@ namespace FFRKApi.Logic.EnlirMerge
                     string realmName = GetNameOfTypeListItem<RealmList>(lm.Realm);
 
                     lm.RelicId = transformResults.Relics.Where(r => (lm.RelicName == $"{r.RelicName} ({realmName})") &&
-                    r.Realm == lm.Realm && lm.CharacterName == r.CharacterName).Select(r => r.Id).SingleOrDefault();
+                    r.Realm == lm.Realm && lm.CharacterName == r.CharacterName && r.LegendMateriaName == lm.LegendMateriaName).Select(r => r.Id).SingleOrDefault();
 
                     _logger.LogDebug("wired up RelicId {RelicId} to LegendMateria {LegendMateria}", lm.RelicId, lm.Description);
                 }
@@ -417,7 +420,7 @@ namespace FFRKApi.Logic.EnlirMerge
                     string realmName = GetNameOfTypeListItem<RealmList>(sb.Realm);
 
                     sb.RelicId = transformResults.Relics.Where(r => (sb.RelicName == $"{r.RelicName} ({realmName})") && 
-                    r.Realm == sb.Realm && sb.CharacterName == r.CharacterName).Select(r => r.Id).SingleOrDefault();
+                    r.Realm == sb.Realm && sb.CharacterName == r.CharacterName && r.SoulBreakName == sb.SoulBreakName).Select(r => r.Id).SingleOrDefault();
 
                     _logger.LogDebug("wired up RelicId {RelicId} to SoulBreak {SoulBreak}", sb.RelicId, sb.Description);
                 }
@@ -430,7 +433,7 @@ namespace FFRKApi.Logic.EnlirMerge
                     string realmName = GetNameOfTypeListItem<RealmList>(lb.Realm);
 
                     lb.RelicId = transformResults.Relics.Where(r => (lb.RelicName == $"{r.RelicName} ({realmName})") &&
-                    r.Realm == lb.Realm && lb.CharacterName == r.CharacterName).Select(r => r.Id).SingleOrDefault();
+                    r.Realm == lb.Realm && lb.CharacterName == r.CharacterName && r.SoulBreakName == lb.LimitBreakName).Select(r => r.Id).SingleOrDefault();
 
                     _logger.LogDebug("wired up RelicId {RelicId} to LimitBreak {LimitBreak}", lb.RelicId, lb.Description);
                 }

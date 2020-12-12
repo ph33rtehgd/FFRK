@@ -29,7 +29,8 @@ namespace FFRKApi.Model.EnlirTransform.IdLists
                                                                           new KeyValuePair<int, string>(18, "Random enemy without status"),
                                                                           new KeyValuePair<int, string>(19, "Self"),
                                                                           new KeyValuePair<int, string>(20, "Single enemy"),
-                                                                          new KeyValuePair<int, string>(21, "All enemeies")
+                                                                          new KeyValuePair<int, string>(21, "All enemeies"),
+                                                                          new KeyValuePair<int, string>(22, "Random ally prioritizing self last")
                                                                       };
 
 

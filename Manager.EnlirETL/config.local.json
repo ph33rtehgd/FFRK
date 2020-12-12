@@ -3,6 +3,7 @@
 
   },
   "LoggingOptions": {
+    "ApiLogFilePath": "../logs/ffrk-api-{Date}.log",
     "LogFilePath": "FFRKApi.ETL.Log-{Date}.txt",
     "ApplicationInsightsKey": "Placeholder",
     "AppComponentName": "Manager.EnlirETL"
@@ -26,14 +27,14 @@
     "BannerStoragePath": "Banner"
   },
   "SheetsServiceOptions": {
-    "Name": "Placeholder",
-    "ApiKey": "Placeholder",
+    "Name": "FFRK API Key",
+    "ApiKey": "AIzaSyAVaeRmfLcGWbINcXz131cK4jYbp6yGYNk",
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk"
   },
   "CharacterImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "Characters",
-    "RangeExpression": "A2:DD",
+    "RangeExpression": "A2:DK",
     "ValueRenderOption": 2
   },
   "RecordSphereImporterOptions": {
@@ -57,7 +58,7 @@
   "LegendMateriaImporterOptions": {
     "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
     "WorkSheetName": "'Legend Materia'",
-    "RangeExpression": "A2:L",
+    "RangeExpression": "A2:M",
     "ValueRenderOption": 2
   },
   "AbilityImporterOptions": {

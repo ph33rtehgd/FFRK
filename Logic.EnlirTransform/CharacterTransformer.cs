@@ -52,6 +52,8 @@ namespace FFRKApi.Logic.EnlirTransform
 
             model.StatIncrementsForLegendSpheres = GetStatIncrementsForLegendSpheres(row);
 
+            model.StatIncrementsForRecordBoard = GetStatIncrementsForRecordBoards(row);
+
             model.IntroducingEventRecordBoard = row.IntroducingEventRecordBoard;
 
             model.SchoolAccessInfos = GetSchoolAccessInfos(row);
@@ -186,6 +188,28 @@ namespace FFRKApi.Logic.EnlirTransform
                                        Accuracy = 0, //not relevant for legend spheres
                                        Evasion = 0, //not relevant for legend spheres
                                        Speed = _intConverter.ConvertFromStringToInt(row.SPDLegendSphere)
+            };
+
+
+            return sli;
+        }
+
+        private StatsByLevelInfo GetStatIncrementsForRecordBoards(CharacterRow row)
+        {
+            StatsByLevelInfo sli = new StatsByLevelInfo()
+            {
+                Level = 0, //not relevant for record boards
+                IntroducingEvent = row.IntroducingEventRecordBoard,
+                IntroducingEventId = 0, //filled in during merge phase
+                HitPoints = _intConverter.ConvertFromStringToInt(row.HPRecordBoard),
+                Attack = _intConverter.ConvertFromStringToInt(row.ATKRecordBoard),
+                Defense = _intConverter.ConvertFromStringToInt(row.DEFRecordBoard),
+                Magic = _intConverter.ConvertFromStringToInt(row.MAGRecordBoard),
+                Resistance = _intConverter.ConvertFromStringToInt(row.RESRecordBoard),
+                Mind = _intConverter.ConvertFromStringToInt(row.MNDRecordBoard),
+                Accuracy = 0, //not relevant for legend spheres
+                Evasion = 0, //not relevant for legend spheres
+                Speed = _intConverter.ConvertFromStringToInt(row.SPDRecordBoard)
             };
 
 

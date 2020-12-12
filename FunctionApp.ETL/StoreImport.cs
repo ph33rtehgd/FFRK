@@ -24,9 +24,11 @@ namespace FunctionApp.ETL
             try
             {
                 // parse query parameter -can be null
-                string formattedDateString = req.GetQueryNameValuePairs()
-                    .FirstOrDefault(q => string.Compare(q.Key, "formattedDateString", true) == 0)
-                    .Value;
+                var qs = req.RequestUri.ParseQueryString();
+                string formattedDateString = qs.Get("formattedDateString");
+                //string formattedDateString = req.GetQueryNameValuePairs()
+                //    .FirstOrDefault(q => string.Compare(q.Key, "formattedDateString", true) == 0)
+                //    .Value;
 
                 // Get request body
                 dynamic data = await req.Content.ReadAsAsync<object>();
