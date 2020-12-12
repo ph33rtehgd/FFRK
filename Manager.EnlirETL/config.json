@@ -1,0 +1,150 @@
+﻿{
+  "ApplicationOptions": {
+    "Name": "Placeholder",
+    "ApiKey": "Placeholder",
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk"
+  },
+  "FileImportStorageOptions": {
+    "ImportResultsStoragePath": "D:\\Temp\\FFRKApi\\ImportResults-{Date}.json"
+  },
+  "FileTransformStorageOptions": {
+    "TransformResultsStoragePath": "D:\\Temp\\FFRKApi\\TransformResults-{Date}.json"
+  },
+  "FileMergeStorageOptions": {
+    "MergeResultsStoragePath": "D:\\Temp\\FFRKApi\\MergeResults-{Date}.json"
+  },
+  "AzureBlobStorageOptions": {
+    "StorageAccountName": "Placeholder",
+    "ContainerName": "Placeholder",
+    "ConnectionString": "Placeholder",
+    "ImportResultsStoragePath": "Import\\ImportsResults-{Date}.json",
+    "TransformResultsStoragePath": "Transform\\TransformResults-{Date}.json",
+    "MergeResultsStoragePath": "Merge\\MergeResults-{Date}.json",
+    "BannerStoragePath": "Banner"
+  },
+  "SheetsServiceOptions": {
+    "Name": "Placeholder",
+    "ApiKey": "Placeholder",
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk"
+  },
+  "LoggingOptions": {
+    "ApiLogFilePath": "../logs/ffrk-api-{Date}.log",
+    "LogFilePath": "FFRKApi.ETL.Log-{Date}.txt",
+    "ApplicationInsightsKey": "Placeholder",
+    "AppComponentName": "Manager.EnlirETL"
+  },
+  "CharacterImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Characters",
+    "RangeExpression": "A2:DK",
+    "ValueRenderOption": 2
+  },
+  "RecordSphereImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Record Spheres'",
+    "RangeExpression": "A2:AG",
+    "ValueRenderOption": 2
+  },
+  "LegendSphereImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Legend Spheres'",
+    "RangeExpression": "A2:P",
+    "ValueRenderOption": 2
+  },
+  "RecordMateriaImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Record Materia'",
+    "RangeExpression": "A2:J",
+    "ValueRenderOption": 2
+  },
+  "LegendMateriaImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Legend Materia'",
+    "RangeExpression": "A2:M",
+    "ValueRenderOption": 2
+  },
+  "AbilityImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Abilities",
+    "RangeExpression": "A2:AS",
+    "ValueRenderOption": 2
+  },
+  "SoulBreakImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Soul Breaks'",
+    "RangeExpression": "A2:W",
+    "ValueRenderOption": 2
+  },
+  "LimitBreakImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Limit Breaks'",
+    "RangeExpression": "A2:U",
+    "ValueRenderOption": 2
+  },
+  "CommandImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Burst",
+    "RangeExpression": "A2:S",
+    "ValueRenderOption": 2
+  },
+  "SynchroCommandImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Synchro",
+    "RangeExpression": "A2:V",
+    "ValueRenderOption": 2
+  },
+  "BraveActionImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Brave",
+    "RangeExpression": "A2:U",
+    "ValueRenderOption": 2
+  },
+  "OtherImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Other",
+    "RangeExpression": "A2:R",
+    "ValueRenderOption": 2
+  },
+  "StatusImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Status",
+    "RangeExpression": "A2:H",
+    "ValueRenderOption": 2
+  },
+  "RelicImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Relics",
+    "RangeExpression": "A2:AL",
+    "ValueRenderOption": 0
+  },
+  "MagiciteImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Magicite",
+    "RangeExpression": "A2:BF",
+    "ValueRenderOption": 2
+  },
+  "MagiciteSkillImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "'Magicite Skills'",
+    "RangeExpression": "A2:S",
+    "ValueRenderOption": 2
+  },
+  "EventImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Events",
+    "RangeExpression": "A2:K",
+    "ValueRenderOption": 0
+  },
+  "MissionImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Missions",
+    "RangeExpression": "A2:D",
+    "ValueRenderOption": 2
+  },
+  "ExperienceImporterOptions": {
+    "SpreadsheetId": "1f8OJIQhpycljDQ8QNDk_va1GJ1u7RVoMaNjFcHH0LKk",
+    "WorkSheetName": "Experience",
+    "RangeExpression": "A2:Y",
+    "ValueRenderOption": 0
+  }
+}
