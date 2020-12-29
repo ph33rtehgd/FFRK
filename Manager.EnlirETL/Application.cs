@@ -97,7 +97,7 @@ namespace Manager.EnlirETL
                 string failureInfo;
 
                 //Before we take the overhead of downloading all the import data, check that the data has the right overall structure
-                bool useLocalImport = true;
+                bool useLocalImport = false;
                 ImportResultsContainer importResultsContainer = null;
                 string importStoragePath = null;
                 if (!useLocalImport)
@@ -115,7 +115,7 @@ namespace Manager.EnlirETL
                 else
                 {
                     //cheat data setup for testing - comment out when doing full run for real
-                    importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2020-12-12_05-14-23.json";
+                    importStoragePath = @"D:\Temp\FFRKApi\ImportResults-2020-12-29_02-29-44.json";
                     //string transformStoragePath = @"D:\Docs\Personal\FFRKLinqQuery\TransformResults-Latest.json";
                     //string formattedDateString = "2018-12-21_09-48-46";
                     string importContents = File.ReadAllText(importStoragePath);
