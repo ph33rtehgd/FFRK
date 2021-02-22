@@ -22,7 +22,8 @@ namespace FFRKApi.Model.EnlirTransform.IdLists
                                                                  new KeyValuePair<int, string>(11, "Record Missions"),
                                                                  new KeyValuePair<int, string>(12, "Survival Event"),
                                                                  new KeyValuePair<int, string>(12, "Torment Dungeon"),
-                                                                 new KeyValuePair<int, string>(13, "Relic Draw")
+                                                                 new KeyValuePair<int, string>(13, "Relic Draw"),
+                                                                 new KeyValuePair<int, string>(14, "Labyrinth Event")
                                                              };
 
 

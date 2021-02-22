@@ -82,6 +82,7 @@ namespace FFRKApi.Logic.EnlirTransform
             model.MinimumLBPoints = _intConverter.ConvertFromStringToInt(row.MinimumLBPoints);
             model.LimitBreakTier = _limitBreakTierConverter.ConvertFromNameToId(row.Tier);
             model.LimitBreakBonus = row.LimitBreakBonus;
+            model.MasteryBonus = row.MasteryBonus;
 
             model.EnlirId = row.ID;
 

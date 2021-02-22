@@ -40,6 +40,7 @@ namespace FFRKApi.Dto.Api
         public int MinimumLBPoints { get; set; }
         public int LimitBreakTier { get; set; }
         public string LimitBreakBonus { get; set; }
+        public string MasteryBonus { get; set; }
 
 
 

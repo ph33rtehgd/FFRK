@@ -42,6 +42,8 @@ namespace FFRKApi.Model.EnlirTransform
         public int LimitBreakTier { get; set; }
         public string LimitBreakBonus { get; set; }
 
+        public string MasteryBonus { get; set; }
+
 
 
         public string EnlirId { get; set; }

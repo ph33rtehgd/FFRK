@@ -36,6 +36,7 @@ namespace FFRKApi.Logic.EnlirImport
             importedRow.MinimumLBPoints = ResolveColumnContents(columnCount, LimitBreakColumn.MinimumLBPoints, row);
             importedRow.Tier = ResolveColumnContents(columnCount, LimitBreakColumn.Tier, row);
             importedRow.LimitBreakBonus = ResolveColumnContents(columnCount, LimitBreakColumn.LimitBreakBonus, row);
+            importedRow.MasteryBonus = ResolveColumnContents(columnCount, LimitBreakColumn.MasteryBonus, row);
             importedRow.Relic = ResolveColumnContents(columnCount, LimitBreakColumn.Relic, row);
             importedRow.JapaneseName = ResolveColumnContents(columnCount, LimitBreakColumn.JapaneseName, row);
             importedRow.ID = ResolveColumnContents(columnCount, LimitBreakColumn.ID, row);

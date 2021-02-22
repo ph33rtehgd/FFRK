@@ -23,11 +23,12 @@ namespace FFRKApi.Model.EnlirImport
         AutoTarget = 13,
         MinimumLBPoints = 14,
         LimitBreakBonus = 15,
-        Relic = 16,
-        JapaneseName = 17,
-        ID = 18,
-        IsInGlobal = 19,
-        Checked = 20
+        MasteryBonus = 16,
+        Relic = 17,
+        JapaneseName = 18,
+        ID = 19,
+        IsInGlobal = 20,
+        Checked = 21
 
     }
 
@@ -50,6 +51,7 @@ namespace FFRKApi.Model.EnlirImport
         public string MinimumLBPoints { get; set; }
         public string Tier { get; set; }
         public string LimitBreakBonus { get; set; }
+        public string MasteryBonus { get; set; }
         public string Relic { get; set; }
         public string JapaneseName { get; set; }
         public string ID { get; set; }
