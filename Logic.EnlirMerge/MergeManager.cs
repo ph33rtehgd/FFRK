@@ -654,6 +654,12 @@ namespace FFRKApi.Logic.EnlirMerge
 
                 //soulBreak.Statuses = processedMatches;
                 soulBreak.Statuses = ProcessStatusesForEffects(transformResults, soulBreak.Effects);
+                IEnumerable<Status> innerStatuses = new List<Status>();
+                foreach (Status s in soulBreak.Statuses)
+                {
+                    innerStatuses = innerStatuses.Concat(ProcessStatusesForEffects(transformResults, s.Effects));
+                }
+                soulBreak.Statuses = soulBreak.Statuses.Concat(innerStatuses).GroupBy(s => s.StatusId).Select(s => s.First()).ToList();
 
                 _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", soulBreak.Statuses.Count(), soulBreak.Description);
             }
@@ -667,6 +673,13 @@ namespace FFRKApi.Logic.EnlirMerge
                 //limitBreak.Statuses = processedMatches;
 
                 limitBreak.Statuses = ProcessStatusesForEffects(transformResults, limitBreak.Effects);
+
+                IEnumerable<Status> innerStatuses = new List<Status>();
+                foreach (Status s in limitBreak.Statuses)
+                {
+                    innerStatuses = innerStatuses.Concat(ProcessStatusesForEffects(transformResults, s.Effects));
+                }
+                limitBreak.Statuses = limitBreak.Statuses.Concat(innerStatuses).GroupBy(s => s.StatusId).Select(s => s.First()).ToList();
 
                 _logger.LogDebug("wired up {StatusesCount} Statuses to SoulBreak {SoulBreak}", limitBreak.Statuses.Count(), limitBreak.Description);
             }
